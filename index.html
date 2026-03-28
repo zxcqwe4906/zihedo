@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>滋和堂生醫 Zihedo Biotech</title>
+  <meta
+    name="description"
+    content="滋和堂生醫結合傳統智慧與現代科技，打造藥補與食補整合品牌，讓健康保養成為優雅生活的一部分。"
+  >
+  <meta name="theme-color" content="#251614">
+  <meta property="og:title" content="滋和堂生醫 Zihedo Biotech">
+  <meta
+    property="og:description"
+    content="以藥補與食補為核心，回應高齡社會健康需求，讓健康保養成為優雅生活的日常修養。"
+  >
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #251614;
+      --bg-soft: #32201d;
+      --panel: rgba(67, 44, 38, 0.78);
+      --panel-strong: rgba(82, 54, 47, 0.92);
+      --text: #f6eee7;
+      --muted: rgba(246, 238, 231, 0.72);
+      --line: rgba(230, 193, 154, 0.18);
+      --gold: #d9b07f;
+      --gold-soft: #e7c89f;
+      --copper: #bf8666;
+      --highlight: #fff3e5;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      --container: min(1120px, calc(100vw - 48px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Serif TC", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(191, 134, 102, 0.18), transparent 34%),
+        radial-gradient(circle at 85% 15%, rgba(217, 176, 127, 0.12), transparent 24%),
+        linear-gradient(180deg, #3a2521 0%, var(--bg) 30%, #1d1211 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(29, 18, 17, 0.52);
+      border-bottom: 1px solid rgba(231, 200, 159, 0.08);
+    }
+
+    .site-header .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 22px 0;
+    }
+
+    .brand-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .brand-mini strong,
+    .hero-logo .roman {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: 0.24em;
+      font-weight: 600;
+    }
+
+    .brand-mini strong {
+      font-size: 1.45rem;
+      color: var(--gold-soft);
+    }
+
+    .brand-mini span,
+    .nav a,
+    .eyebrow,
+    .footer-copy {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-mini span,
+    .nav a,
+    .eyebrow,
+    .footer-copy {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .brand-mini span {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(231, 200, 159, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.84rem;
+      letter-spacing: 0.14em;
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .nav a:hover {
+      color: var(--gold-soft);
+      transform: translateY(-1px);
+      border-color: rgba(231, 200, 159, 0.26);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .focus-card,
+    .vision-card,
+    .cta-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 56px;
+      border-radius: 32px;
+      overflow: hidden;
+      min-height: 720px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255, 243, 229, 0.12), transparent 26%),
+        linear-gradient(135deg, rgba(217, 176, 127, 0.11), transparent 36%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .hero-logo .roman {
+      display: inline-flex;
+      gap: 0.1em;
+      font-size: clamp(4rem, 9vw, 7.4rem);
+      line-height: 0.92;
+      color: var(--gold-soft);
+    }
+
+    .hero-logo .roman .accent {
+      color: var(--highlight);
+    }
+
+    .hero-logo .roman .copper {
+      color: var(--copper);
+    }
+
+    .hero-logo .divider {
+      width: min(560px, 100%);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(217, 176, 127, 0), rgba(217, 176, 127, 0.7), rgba(217, 176, 127, 0));
+    }
+
+    .hero-logo .subline {
+      font-size: clamp(1.15rem, 2vw, 1.9rem);
+      letter-spacing: 0.38em;
+      color: #f0c88a;
+      white-space: nowrap;
+    }
+
+    .hero-logo .origin {
+      font-size: 0.9rem;
+      letter-spacing: 0.34em;
+      color: rgba(246, 238, 231, 0.7);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-soft));
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .hero-copy p + p {
+      margin-top: 14px;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--gold-soft), var(--copper));
+      color: #281917;
+      font-weight: 700;
+    }
+
+    .button.secondary {
+      border: 1px solid rgba(231, 200, 159, 0.28);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    .focus-card,
+    .vision-card,
+    .cta-card {
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .focus-card,
+    .vision-card {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .focus-lead {
+      font-size: 1.22rem;
+      line-height: 1.9;
+      color: var(--highlight);
+    }
+
+    .focus-brief {
+      display: grid;
+      gap: 18px;
+    }
+
+    .focus-item {
+      padding-left: 18px;
+      border-left: 1px solid rgba(231, 200, 159, 0.18);
+    }
+
+    .focus-item strong,
+    .vision-item strong {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      color: var(--gold-soft);
+      letter-spacing: 0.12em;
+    }
+
+    .vision-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .vision-item {
+      padding-left: 18px;
+      border-left: 1px solid rgba(231, 200, 159, 0.18);
+    }
+
+    .quote {
+      font-size: 1.18rem;
+      line-height: 1.8;
+      color: var(--highlight);
+    }
+
+    .cta-card {
+      background:
+        radial-gradient(circle at right top, rgba(217, 176, 127, 0.16), transparent 32%),
+        linear-gradient(135deg, rgba(71, 46, 39, 0.98), rgba(38, 23, 21, 0.96));
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cta-note {
+      padding: 22px 24px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(231, 200, 159, 0.14);
+    }
+
+    footer {
+      padding: 32px 0 48px;
+    }
+
+    .footer-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(231, 200, 159, 0.12);
+      color: rgba(246, 238, 231, 0.56);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cta-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .focus-card,
+      .vision-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header .shell,
+      .footer-copy {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-card,
+      .focus-card,
+      .vision-card,
+      .cta-card {
+        padding: 24px;
+        border-radius: 22px;
+      }
+
+      .hero-logo .subline,
+      .hero-logo .origin {
+        white-space: normal;
+        letter-spacing: 0.18em;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav a {
+        min-height: 42px;
+        padding: 0 16px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand-mini" href="#top" aria-label="滋和堂生醫首頁">
+        <strong>ZIHÉDO</strong>
+        <span>滋和堂生醫｜日本技術源</span>
+      </a>
+      <nav class="nav" aria-label="主要導覽">
+        <a href="#about">品牌理念</a>
+        <a href="#vision">未來願景</a>
+        <a href="#contact">合作洽詢</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <article class="hero-card">
+          <div class="hero-logo" aria-label="滋和堂生醫品牌識別">
+            <div class="roman">
+              <span>Z</span><span>I</span><span>H</span><span class="accent">É</span><span>D</span><span class="copper">O</span>
+            </div>
+            <div class="divider"></div>
+            <div class="subline">滋和堂生醫｜日本技術源</div>
+            <div class="origin">SINCE 1895 · NARA, JAPAN</div>
+          </div>
+
+          <div class="hero-copy">
+            <h1>讓健康保養，成為優雅生活的日常修養。</h1>
+            <p>
+              面對台灣逐年高齡化的人口結構，健康不再只是被動調理，更需要主動保養。
+              滋和堂生醫致力於結合傳統智慧與現代科技，打造具代表性的藥補與食補品牌。
+            </p>
+            <p>
+              我們希望透過高品質的生醫產品，讓變老不再是負擔，
+              而是保有體魄、尊嚴與生活品質的優雅過程。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#about">品牌理念</a>
+              <a class="button secondary" href="#contact">合作洽詢</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <article class="focus-card">
+          <div>
+            <div class="eyebrow">品牌理念</div>
+            <h2>以藥補與食補為核心，回應高齡社會健康需求的生醫品牌。</h2>
+            <p class="focus-lead">
+              滋和堂生醫以東方養生智慧為根基，融入現代科技與品質思維，
+              讓健康保養不只停留在產品層面，而是成為值得信任的日常實踐。
+            </p>
+          </div>
+          <div class="focus-brief">
+            <div class="focus-item">
+              <strong>品牌語言</strong>
+              <p>以沉穩清楚的方式傳達專業，讓藥補與食補更貼近現代人的生活節奏。</p>
+            </div>
+            <div class="focus-item">
+              <strong>產品方向</strong>
+              <p>聚焦高品質生醫產品，從主動保養出發，回應高齡社會與日常健康需求。</p>
+            </div>
+            <div class="focus-item">
+              <strong>核心價值</strong>
+              <p>讓健康不只是功能訴求，而是一種有尊嚴、有品質的生活選擇。</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="shell">
+        <article class="vision-card">
+          <div>
+            <div class="eyebrow">未來願景</div>
+            <h2>讓變老不再沉重，而是一段更從容、更有品質的生命歷程。</h2>
+            <p class="focus-lead">
+              我們期待透過高品質的生醫產品與穩健的品牌實力，
+              讓長輩在老化過程中依然保有強健體魄，享受自主、體面且有品質的生活。
+            </p>
+          </div>
+          <div class="vision-copy">
+            <div class="vision-item">
+              <strong>長期目標</strong>
+              <p class="quote">
+                建構生活化保養的商業生態圈，從老字號出發，走進現代人的餐桌與日常，
+                成為華人世界藥補與食補跨界整合的領導品牌。
+              </p>
+            </div>
+            <div class="vision-item">
+              <strong>發展方向</strong>
+              <p>
+                以品牌、產品與跨界合作為支點，持續擴大市場佈局，
+                讓滋和堂的保養理念在更多生活場景中被看見、被實踐。
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell">
+        <article class="cta-card">
+          <div>
+            <div class="eyebrow">合作洽詢</div>
+            <h2>尋找相信品牌長線價值的合作夥伴。</h2>
+            <p>
+              無論是品牌合作、通路整合、資本交流或跨界串聯，
+              滋和堂生醫都期待與關注健康產業未來的夥伴展開更深入的商業對話。
+            </p>
+          </div>
+          <div class="cta-note">
+            <h3>合作洽詢</h3>
+            <p>
+              以 2026 年 4 月 12 日閉門交流會為起點，滋和堂將持續鏈結資本與跨界資源，
+              擴大品牌佈局，推進生活化保養的長期願景。
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-copy">
+      <span>Zihedo Biotech Official Website</span>
+      <span>Copyright © 滋和堂生醫 All Rights Reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
