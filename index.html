@@ -691,9 +691,11 @@
       }
 
       const updateAnchorOffset = () => {
-        const isMobile = window.matchMedia("(max-width: 720px)").matches;
-        const gap = isMobile ? 28 : 72;
-        const offset = Math.ceil(header.getBoundingClientRect().height + gap);
+        const sectionTopPadding = 56;
+        const offset = Math.max(
+          0,
+          Math.ceil(header.getBoundingClientRect().height - sectionTopPadding)
+        );
         document.documentElement.style.setProperty("--anchor-offset", `${offset}px`);
       };
 
