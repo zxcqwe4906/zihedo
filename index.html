@@ -177,6 +177,7 @@
     main {
       position: relative;
       overflow: hidden;
+      padding-bottom: clamp(120px, 18vh, 240px);
     }
 
     .hero {
@@ -355,6 +356,11 @@
 
     section {
       padding: 56px 0;
+    }
+
+    section[id],
+    main[id] {
+      scroll-margin-top: var(--anchor-offset, 160px);
     }
 
     .focus-card,
@@ -675,5 +681,30 @@
       <span>Copyright © 滋和堂生醫 All Rights Reserved.</span>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const header = document.querySelector(".site-header");
+
+      if (!header) {
+        return;
+      }
+
+      const updateAnchorOffset = () => {
+        const isMobile = window.matchMedia("(max-width: 720px)").matches;
+        const gap = isMobile ? 28 : 72;
+        const offset = Math.ceil(header.getBoundingClientRect().height + gap);
+        document.documentElement.style.setProperty("--anchor-offset", `${offset}px`);
+      };
+
+      updateAnchorOffset();
+      window.addEventListener("load", updateAnchorOffset);
+      window.addEventListener("resize", updateAnchorOffset);
+
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(updateAnchorOffset).observe(header);
+      }
+    })();
+  </script>
 </body>
 </html>
