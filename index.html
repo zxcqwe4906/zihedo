@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
   <style>
@@ -54,12 +54,25 @@
     body {
       margin: 0;
       font-family: "Noto Serif TC", serif;
+      font-feature-settings: "kern" 1, "liga" 1;
       color: var(--text);
       background:
         radial-gradient(circle at top left, rgba(191, 134, 102, 0.18), transparent 34%),
         radial-gradient(circle at 85% 15%, rgba(217, 176, 127, 0.12), transparent 24%),
         linear-gradient(180deg, #3a2521 0%, var(--bg) 30%, #1d1211 100%);
       min-height: 100vh;
+    }
+
+    html[lang="en"] body {
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+    }
+
+    html[lang="ja"] body {
+      font-family: "Noto Serif JP", "Noto Serif TC", serif;
+    }
+
+    html[lang="ko"] body {
+      font-family: "Noto Serif KR", "Noto Serif TC", serif;
     }
 
     body::before {
@@ -145,12 +158,76 @@
       letter-spacing: 0.16em;
     }
 
+    html[lang="ja"] .brand-mini span,
+    html[lang="ja"] .nav a,
+    html[lang="ja"] .eyebrow,
+    html[lang="ja"] .footer-copy,
+    html[lang="ko"] .brand-mini span,
+    html[lang="ko"] .nav a,
+    html[lang="ko"] .eyebrow,
+    html[lang="ko"] .footer-copy {
+      letter-spacing: 0.04em;
+      text-transform: none;
+    }
+
+    html[lang="ja"] .brand-mini span,
+    html[lang="ko"] .brand-mini span {
+      letter-spacing: 0.06em;
+    }
+
+    html[lang="en"] .brand-mini span,
+    html[lang="en"] .nav a,
+    html[lang="en"] .eyebrow,
+    html[lang="en"] .footer-copy {
+      letter-spacing: 0.14em;
+    }
+
     .nav {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       justify-content: flex-end;
       align-items: center;
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(231, 200, 159, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .language-button {
+      border: 0;
+      border-radius: 999px;
+      min-height: 36px;
+      padding: 0 14px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    html[lang="ja"] .language-button,
+    html[lang="ko"] .language-button {
+      letter-spacing: 0.08em;
+    }
+
+    .language-button:hover {
+      color: var(--gold-soft);
+      transform: translateY(-1px);
+    }
+
+    .language-button.is-active {
+      background: linear-gradient(135deg, rgba(231, 200, 159, 0.18), rgba(191, 134, 102, 0.2));
+      color: var(--highlight);
     }
 
     .nav a {
@@ -265,10 +342,32 @@
       color: rgba(246, 238, 231, 0.7);
     }
 
+    html[lang="en"] .hero-logo .subline {
+      letter-spacing: 0.18em;
+    }
+
+    html[lang="ja"] .hero-logo .subline,
+    html[lang="ko"] .hero-logo .subline {
+      letter-spacing: 0.08em;
+    }
+
+    html[lang="en"] .hero-logo .origin {
+      letter-spacing: 0.24em;
+    }
+
+    html[lang="ja"] .hero-logo .origin,
+    html[lang="ko"] .hero-logo .origin {
+      letter-spacing: 0.12em;
+    }
+
     .hero-copy {
       position: relative;
       z-index: 1;
       max-width: 760px;
+    }
+
+    html[lang="ja"] .hero-copy {
+      max-width: 840px;
     }
 
     .eyebrow {
@@ -291,6 +390,7 @@
       margin: 0;
       font-weight: 600;
       line-height: 1.2;
+      text-wrap: balance;
     }
 
     h1 {
@@ -308,11 +408,25 @@
       margin-bottom: 14px;
     }
 
+    html[lang="ja"] h1,
+    html[lang="ja"] h2,
+    html[lang="ja"] h3,
+    html[lang="ko"] h1,
+    html[lang="ko"] h2,
+    html[lang="ko"] h3 {
+      line-height: 1.32;
+    }
+
     p {
       margin: 0;
       color: var(--muted);
       line-height: 1.9;
       font-size: 1rem;
+    }
+
+    html[lang="ja"] p,
+    html[lang="ko"] p {
+      line-height: 2;
     }
 
     .hero-copy p + p {
@@ -336,6 +450,11 @@
       font-size: 0.95rem;
       letter-spacing: 0.12em;
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    html[lang="ja"] .button,
+    html[lang="ko"] .button {
+      letter-spacing: 0.04em;
     }
 
     .button.primary {
@@ -401,6 +520,13 @@
       font-size: 0.95rem;
       color: var(--gold-soft);
       letter-spacing: 0.12em;
+    }
+
+    html[lang="ja"] .focus-item strong,
+    html[lang="ja"] .vision-item strong,
+    html[lang="ko"] .focus-item strong,
+    html[lang="ko"] .vision-item strong {
+      letter-spacing: 0.05em;
     }
 
     .vision-copy {
@@ -521,8 +647,10 @@
         text-align: center;
       }
 
-      .nav a:last-child {
-        grid-column: 1 / -1;
+      .language-switcher {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
       }
     }
 
@@ -548,14 +676,20 @@
 <body>
   <header class="site-header">
     <div class="shell">
-      <a class="brand-mini" href="#top" aria-label="滋和堂生醫首頁">
-        <strong>ZIHÉDO</strong>
-        <span>滋和堂生醫｜日本技術源</span>
+      <a class="brand-mini" href="#top" data-i18n-aria-label="brandMiniAriaLabel">
+        <strong data-i18n="brandMiniTitle">ZIHÉDO</strong>
+        <span data-i18n="brandMiniTagline">滋和堂生醫｜日本技術源</span>
       </a>
-      <nav class="nav" aria-label="主要導覽">
-        <a href="#about">品牌理念</a>
-        <a href="#vision">未來願景</a>
-        <a href="#contact">合作洽詢</a>
+      <nav class="nav" data-i18n-aria-label="navAriaLabel">
+        <a href="#about" data-i18n="navAbout">品牌理念</a>
+        <a href="#vision" data-i18n="navVision">未來願景</a>
+        <a href="#contact" data-i18n="navContact">合作洽詢</a>
+        <div class="language-switcher" data-i18n-aria-label="languageSwitcherAriaLabel">
+          <button class="language-button" type="button" data-language="zh-Hant">中</button>
+          <button class="language-button" type="button" data-language="en">EN</button>
+          <button class="language-button" type="button" data-language="ja">JA</button>
+          <button class="language-button" type="button" data-language="ko">KO</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -564,28 +698,28 @@
     <section class="hero">
       <div class="shell hero-grid">
         <article class="hero-card">
-          <div class="hero-logo" aria-label="滋和堂生醫品牌識別">
+          <div class="hero-logo" data-i18n-aria-label="heroLogoAriaLabel">
             <div class="roman">
               <span>Z</span><span>I</span><span>H</span><span class="accent">É</span><span>D</span><span class="copper">O</span>
             </div>
             <div class="divider"></div>
-            <div class="subline">滋和堂生醫｜日本技術源</div>
-            <div class="origin">SINCE 1895 · NARA, JAPAN</div>
+            <div class="subline" data-i18n="heroSubline">滋和堂生醫｜日本技術源</div>
+            <div class="origin" data-i18n="heroOrigin">SINCE 1895 · NARA, JAPAN</div>
           </div>
 
           <div class="hero-copy">
-            <h1>讓健康保養，成為優雅生活的日常修養。</h1>
-            <p>
+            <h1 data-i18n="heroTitle">讓健康保養，成為優雅生活的日常修養。</h1>
+            <p data-i18n="heroBody1">
               面對台灣逐年高齡化的人口結構，健康不再只是被動調理，更需要主動保養。
               滋和堂生醫致力於結合傳統智慧與現代科技，打造具代表性的藥補與食補品牌。
             </p>
-            <p>
+            <p data-i18n="heroBody2">
               我們希望透過高品質的生醫產品，讓變老不再是負擔，
               而是保有體魄、尊嚴與生活品質的優雅過程。
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#about">品牌理念</a>
-              <a class="button secondary" href="#contact">合作洽詢</a>
+              <a class="button primary" href="#about" data-i18n="heroPrimaryCta">品牌理念</a>
+              <a class="button secondary" href="#contact" data-i18n="heroSecondaryCta">合作洽詢</a>
             </div>
           </div>
         </article>
@@ -596,25 +730,25 @@
       <div class="shell">
         <article class="focus-card">
           <div>
-            <div class="eyebrow">品牌理念</div>
-            <h2>以藥補與食補為核心，回應高齡社會健康需求的生醫品牌。</h2>
-            <p class="focus-lead">
+            <div class="eyebrow" data-i18n="aboutEyebrow">品牌理念</div>
+            <h2 data-i18n="aboutTitle">以藥補與食補為核心，回應高齡社會健康需求的生醫品牌。</h2>
+            <p class="focus-lead" data-i18n="aboutLead">
               滋和堂生醫以東方養生智慧為根基，融入現代科技與品質思維，
               讓健康保養不只停留在產品層面，而是成為值得信任的日常實踐。
             </p>
           </div>
           <div class="focus-brief">
             <div class="focus-item">
-              <strong>品牌語言</strong>
-              <p>讓藥補與食補，更貼近現代人的生活節奏。</p>
+              <strong data-i18n="aboutItem1Title">品牌語言</strong>
+              <p data-i18n="aboutItem1Body">讓藥補與食補，更貼近現代人的生活節奏。</p>
             </div>
             <div class="focus-item">
-              <strong>產品方向</strong>
-              <p>聚焦高品質生醫產品，從主動保養出發，回應高齡社會與日常健康需求。</p>
+              <strong data-i18n="aboutItem2Title">產品方向</strong>
+              <p data-i18n="aboutItem2Body">聚焦高品質生醫產品，從主動保養出發，回應高齡社會與日常健康需求。</p>
             </div>
             <div class="focus-item">
-              <strong>核心價值</strong>
-              <p>讓健康不只是功能訴求，而是一種有尊嚴、有品質的生活選擇。</p>
+              <strong data-i18n="aboutItem3Title">核心價值</strong>
+              <p data-i18n="aboutItem3Body">讓健康不只是功能訴求，而是一種有尊嚴、有品質的生活選擇。</p>
             </div>
           </div>
         </article>
@@ -625,24 +759,24 @@
       <div class="shell">
         <article class="vision-card">
           <div>
-            <div class="eyebrow">未來願景</div>
-            <h2>讓變老不再沉重，而是一段更從容、更有品質的生命歷程。</h2>
-            <p class="focus-lead">
+            <div class="eyebrow" data-i18n="visionEyebrow">未來願景</div>
+            <h2 data-i18n="visionTitle">讓變老不再沉重，而是一段更從容、更有品質的生命歷程。</h2>
+            <p class="focus-lead" data-i18n="visionLead">
               我們期待透過高品質的生醫產品與穩健的品牌實力，
               讓長輩在老化過程中依然保有強健體魄，享受自主、體面且有品質的生活。
             </p>
           </div>
           <div class="vision-copy">
             <div class="vision-item">
-              <strong>長期目標</strong>
-              <p class="quote">
+              <strong data-i18n="visionItem1Title">長期目標</strong>
+              <p class="quote" data-i18n="visionItem1Body">
                 建構生活化保養的商業生態圈，從老字號出發，走進現代人的餐桌與日常，
                 成為華人世界藥補與食補跨界整合的領導品牌。
               </p>
             </div>
             <div class="vision-item">
-              <strong>發展方向</strong>
-              <p>
+              <strong data-i18n="visionItem2Title">發展方向</strong>
+              <p data-i18n="visionItem2Body">
                 以品牌、產品與跨界合作為支點，持續擴大市場佈局，
                 讓滋和堂的保養理念在更多生活場景中被看見、被實踐。
               </p>
@@ -656,16 +790,16 @@
       <div class="shell">
         <article class="cta-card">
           <div>
-            <div class="eyebrow">合作洽詢</div>
-            <h2>尋找相信品牌長線價值的合作夥伴。</h2>
-            <p>
+            <div class="eyebrow" data-i18n="contactEyebrow">合作洽詢</div>
+            <h2 data-i18n="contactTitle">尋找相信品牌長線價值的合作夥伴。</h2>
+            <p data-i18n="contactBody">
               無論是品牌合作、通路整合、資本交流或跨界串聯，
               滋和堂生醫都期待與關注健康產業未來的夥伴展開更深入的商業對話。
             </p>
           </div>
           <div class="cta-note">
-            <h3>合作洽詢</h3>
-            <p>
+            <h3 data-i18n="contactNoteTitle">合作洽詢</h3>
+            <p data-i18n="contactNoteBody">
               以 2026 年 4 月 12 日閉門交流會為起點，滋和堂將持續鏈結資本與跨界資源，
               擴大品牌佈局，推進生活化保養的長期願景。
             </p>
@@ -677,14 +811,200 @@
 
   <footer>
     <div class="shell footer-copy">
-      <span>Zihedo Biotech Official Website</span>
-      <span>Copyright © 滋和堂生醫 All Rights Reserved.</span>
+      <span data-i18n="footerSite">Zihedo Biotech Official Website</span>
+      <span data-i18n="footerCopyright">Copyright © 滋和堂生醫 All Rights Reserved.</span>
     </div>
   </footer>
 
   <script>
     (() => {
       const header = document.querySelector(".site-header");
+      const languageButtons = document.querySelectorAll("[data-language]");
+      const translatedNodes = document.querySelectorAll("[data-i18n]");
+      const translatedAriaNodes = document.querySelectorAll("[data-i18n-aria-label]");
+      const titleTag = document.querySelector("title");
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+      const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+      const ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+
+      const translations = {
+        "zh-Hant": {
+          pageTitle: "滋和堂生醫 Zihedo Biotech",
+          metaDescription: "滋和堂生醫結合傳統智慧與現代科技，打造藥補與食補整合品牌，讓健康保養成為優雅生活的一部分。",
+          ogDescription: "以藥補與食補為核心，回應高齡社會健康需求，讓健康保養成為優雅生活的日常修養。",
+          brandMiniAriaLabel: "滋和堂生醫首頁",
+          navAriaLabel: "主要導覽",
+          languageSwitcherAriaLabel: "語言切換",
+          heroLogoAriaLabel: "滋和堂生醫品牌識別",
+          brandMiniTitle: "ZIHÉDO",
+          brandMiniTagline: "滋和堂生醫｜日本技術源",
+          navAbout: "品牌理念",
+          navVision: "未來願景",
+          navContact: "合作洽詢",
+          heroSubline: "滋和堂生醫｜日本技術源",
+          heroOrigin: "SINCE 1895 · NARA, JAPAN",
+          heroTitle: "讓健康保養，成為優雅生活的日常修養。",
+          heroBody1: "面對台灣逐年高齡化的人口結構，健康不再只是被動調理，更需要主動保養。滋和堂生醫致力於結合傳統智慧與現代科技，打造具代表性的藥補與食補品牌。",
+          heroBody2: "我們希望透過高品質的生醫產品，讓變老不再是負擔，而是保有體魄、尊嚴與生活品質的優雅過程。",
+          heroPrimaryCta: "品牌理念",
+          heroSecondaryCta: "合作洽詢",
+          aboutEyebrow: "品牌理念",
+          aboutTitle: "以藥補與食補為核心，回應高齡社會健康需求的生醫品牌。",
+          aboutLead: "滋和堂生醫以東方養生智慧為根基，融入現代科技與品質思維，讓健康保養不只停留在產品層面，而是成為值得信任的日常實踐。",
+          aboutItem1Title: "品牌語言",
+          aboutItem1Body: "讓藥補與食補，更貼近現代人的生活節奏。",
+          aboutItem2Title: "產品方向",
+          aboutItem2Body: "聚焦高品質生醫產品，從主動保養出發，回應高齡社會與日常健康需求。",
+          aboutItem3Title: "核心價值",
+          aboutItem3Body: "讓健康不只是功能訴求，而是一種有尊嚴、有品質的生活選擇。",
+          visionEyebrow: "未來願景",
+          visionTitle: "讓變老不再沉重，而是一段更從容、更有品質的生命歷程。",
+          visionLead: "我們期待透過高品質的生醫產品與穩健的品牌實力，讓長輩在老化過程中依然保有強健體魄，享受自主、體面且有品質的生活。",
+          visionItem1Title: "長期目標",
+          visionItem1Body: "建構生活化保養的商業生態圈，從老字號出發，走進現代人的餐桌與日常，成為華人世界藥補與食補跨界整合的領導品牌。",
+          visionItem2Title: "發展方向",
+          visionItem2Body: "以品牌、產品與跨界合作為支點，持續擴大市場佈局，讓滋和堂的保養理念在更多生活場景中被看見、被實踐。",
+          contactEyebrow: "合作洽詢",
+          contactTitle: "尋找相信品牌長線價值的合作夥伴。",
+          contactBody: "無論是品牌合作、通路整合、資本交流或跨界串聯，滋和堂生醫都期待與關注健康產業未來的夥伴展開更深入的商業對話。",
+          contactNoteTitle: "合作洽詢",
+          contactNoteBody: "以 2026 年 4 月 12 日閉門交流會為起點，滋和堂將持續鏈結資本與跨界資源，擴大品牌佈局，推進生活化保養的長期願景。",
+          footerSite: "Zihedo Biotech Official Website",
+          footerCopyright: "Copyright © 滋和堂生醫 All Rights Reserved."
+        },
+        en: {
+          pageTitle: "Zihedo Biotech",
+          metaDescription: "Zihedo Biotech blends traditional wisdom with modern science to build an integrated herbal and nutritional wellness brand for graceful everyday health.",
+          ogDescription: "Centered on herbal and nutritional wellness, Zihedo responds to the needs of an aging society and makes health care part of an elegant daily life.",
+          brandMiniAriaLabel: "Zihedo Biotech homepage",
+          navAriaLabel: "Main navigation",
+          languageSwitcherAriaLabel: "Language switcher",
+          heroLogoAriaLabel: "Zihedo Biotech brand identity",
+          brandMiniTitle: "ZIHÉDO",
+          brandMiniTagline: "Zihedo Biotech | Japanese Technical Heritage",
+          navAbout: "About",
+          navVision: "Vision",
+          navContact: "Contact",
+          heroSubline: "Zihedo Biotech | Japanese Technical Heritage",
+          heroOrigin: "SINCE 1895 · NARA, JAPAN",
+          heroTitle: "Make wellness care part of an elegant daily life.",
+          heroBody1: "As Taiwan's population continues to age, health can no longer rely on passive recovery alone. Zihedo Biotech combines traditional wisdom with modern science to shape a distinctive herbal and nutritional wellness brand.",
+          heroBody2: "Through high-quality biotech products, we hope aging feels less like a burden and more like a graceful journey with strength, dignity, and quality of life.",
+          heroPrimaryCta: "About",
+          heroSecondaryCta: "Contact",
+          aboutEyebrow: "About",
+          aboutTitle: "A biotech brand centered on herbal and nutritional wellness for the needs of an aging society.",
+          aboutLead: "Rooted in Eastern wellness wisdom, Zihedo Biotech integrates modern science and quality thinking so health care becomes more than a product. It becomes a trusted daily practice.",
+          aboutItem1Title: "Brand Voice",
+          aboutItem1Body: "Bring herbal and nutritional wellness closer to the rhythm of modern life.",
+          aboutItem2Title: "Product Direction",
+          aboutItem2Body: "Focus on premium biotech products that begin with proactive care and respond to both aging-society challenges and everyday health needs.",
+          aboutItem3Title: "Core Value",
+          aboutItem3Body: "Health is not only a functional promise, but a dignified and high-quality way to live.",
+          visionEyebrow: "Vision",
+          visionTitle: "Aging should not feel heavy, but calm, confident, and full of quality.",
+          visionLead: "With strong products and a steady brand foundation, we aim to help older adults stay physically resilient and enjoy an independent, dignified, and high-quality life.",
+          visionItem1Title: "Long-Term Goal",
+          visionItem1Body: "Build a lifestyle wellness ecosystem that starts from a heritage brand, enters modern tables and routines, and becomes a leading integrated brand for herbal and nutritional wellness across the Chinese-speaking world.",
+          visionItem2Title: "Growth Direction",
+          visionItem2Body: "Using brand strength, product excellence, and cross-industry partnerships as leverage, we will continue expanding our market presence and bringing Zihedo's wellness philosophy into more everyday scenarios.",
+          contactEyebrow: "Contact",
+          contactTitle: "Seeking partners who believe in long-term brand value.",
+          contactBody: "Whether in brand collaboration, channel integration, capital exchange, or cross-industry partnerships, Zihedo Biotech welcomes deeper business conversations with partners who care about the future of the health industry.",
+          contactNoteTitle: "Partnership Update",
+          contactNoteBody: "Starting with the private exchange on April 12, 2026, Zihedo will continue connecting capital and cross-sector resources to expand the brand footprint and advance its long-term lifestyle wellness vision.",
+          footerSite: "Zihedo Biotech Official Website",
+          footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
+        },
+        ja: {
+          pageTitle: "滋和堂生医 Zihedo Biotech",
+          metaDescription: "滋和堂生医は、伝統の知恵と現代技術を融合し、漢方補養と栄養補養を統合したブランドとして、健やかな毎日を優雅に支えます。",
+          ogDescription: "漢方補養と栄養補養を軸に、高齢化社会の健康課題に応え、日々の健康管理を上質な習慣へと導きます。",
+          brandMiniAriaLabel: "滋和堂生医 ホームページ",
+          navAriaLabel: "メインナビゲーション",
+          languageSwitcherAriaLabel: "言語切替",
+          heroLogoAriaLabel: "滋和堂生医 ブランドアイデンティティ",
+          brandMiniTitle: "ZIHÉDO",
+          brandMiniTagline: "滋和堂生医｜日本技術の系譜",
+          navAbout: "ブランド理念",
+          navVision: "将来ビジョン",
+          navContact: "お問い合わせ",
+          heroSubline: "滋和堂生医｜日本技術の系譜",
+          heroOrigin: "SINCE 1895 · NARA, JAPAN",
+          heroTitle: "健やかな手入れを、優雅な日常のたしなみに。",
+          heroBody1: "台湾では高齢化が年々進み、健康は受け身のケアだけではなく、主体的な養生がより重要になっています。滋和堂生医は、伝統の知恵と現代技術を融合し、象徴的な漢方補養・栄養補養ブランドを築いています。",
+          heroBody2: "高品質なバイオテック製品を通じて、年齢を重ねることを負担ではなく、体力と尊厳、生活の質を保つ優雅なプロセスにしたいと考えています。",
+          heroPrimaryCta: "ブランド理念",
+          heroSecondaryCta: "お問い合わせ",
+          aboutEyebrow: "ブランド理念",
+          aboutTitle: "漢方補養と栄養補養を核に、高齢化社会の健康ニーズに応えるバイオブランド。",
+          aboutLead: "滋和堂生医は東洋の養生思想を基盤に、現代技術と品質への視点を融合し、健康管理を単なる製品ではなく、信頼できる日常の実践へと高めます。",
+          aboutItem1Title: "ブランドメッセージ",
+          aboutItem1Body: "漢方補養と栄養補養を、現代人の生活リズムにより近づけること。",
+          aboutItem2Title: "製品方向",
+          aboutItem2Body: "高品質なバイオテック製品に注力し、予防的なケアから出発して、高齢化社会と日常の健康課題に応えます。",
+          aboutItem3Title: "コアバリュー",
+          aboutItem3Body: "健康は機能的な訴求だけでなく、尊厳と質を備えた生き方の選択です。",
+          visionEyebrow: "将来ビジョン",
+          visionTitle: "年を重ねることを重荷ではなく、より穏やかで質のある人生の歩みに。",
+          visionLead: "高品質な製品と堅実なブランド基盤を通じて、加齢の過程でも健やかな身体を保ち、自立と品位、そして生活の質を楽しめる未来を目指します。",
+          visionItem1Title: "長期目標",
+          visionItem1Body: "老舗ブランドから出発し、現代の食卓と日常へ入り込み、華人圏における漢方補養と栄養補養の統合ブランドとしてリーダーになることを目指します。",
+          visionItem2Title: "発展方向",
+          visionItem2Body: "ブランド、製品、異業種連携を軸に市場展開を拡大し、滋和堂の養生理念がより多くの生活シーンで見られ、実践されるようにしていきます。",
+          contactEyebrow: "お問い合わせ",
+          contactTitle: "ブランドの長期的価値を信じるパートナーを求めています。",
+          contactBody: "ブランド協業、流通連携、資本交流、異業種コラボレーションなどを通じて、健康産業の未来に関心を持つ皆さまと、より深い対話を進めたいと考えています。",
+          contactNoteTitle: "パートナーシップ情報",
+          contactNoteBody: "2026年4月12日の招待制交流会を起点に、滋和堂は資本と異業種リソースを結びつけ、ブランド展開を広げながら、日常に根ざした養生の長期ビジョンを前進させていきます。",
+          footerSite: "Zihedo Biotech Official Website",
+          footerCopyright: "Copyright © 滋和堂生医 All Rights Reserved."
+        },
+        ko: {
+          pageTitle: "지화당 바이오 Zihedo Biotech",
+          metaDescription: "지화당 바이오는 전통의 지혜와 현대 기술을 결합해 한방 보양과 영양 보양을 아우르는 브랜드로서 우아한 일상의 건강 관리를 제안합니다.",
+          ogDescription: "한방 보양과 영양 보양을 중심으로 고령 사회의 건강 수요에 답하며, 건강 관리를 품격 있는 일상 습관으로 만듭니다.",
+          brandMiniAriaLabel: "지화당 바이오 홈페이지",
+          navAriaLabel: "주요 내비게이션",
+          languageSwitcherAriaLabel: "언어 전환",
+          heroLogoAriaLabel: "지화당 바이오 브랜드 아이덴티티",
+          brandMiniTitle: "ZIHÉDO",
+          brandMiniTagline: "지화당 바이오 | 일본 기술의 뿌리",
+          navAbout: "브랜드 철학",
+          navVision: "비전",
+          navContact: "문의",
+          heroSubline: "지화당 바이오 | 일본 기술의 뿌리",
+          heroOrigin: "SINCE 1895 · NARA, JAPAN",
+          heroTitle: "건강 관리를 우아한 일상의 수양으로.",
+          heroBody1: "대만은 해마다 고령화가 진행되고 있으며, 건강은 더 이상 수동적인 회복만으로는 충분하지 않습니다. 지화당 바이오는 전통의 지혜와 현대 기술을 결합해 차별화된 한방 보양 및 영양 보양 브랜드를 만들어갑니다.",
+          heroBody2: "고품질 바이오 제품을 통해 나이 듦이 부담이 아니라 체력과 존엄, 삶의 질을 지켜가는 우아한 과정이 되기를 바랍니다.",
+          heroPrimaryCta: "브랜드 철학",
+          heroSecondaryCta: "문의",
+          aboutEyebrow: "브랜드 철학",
+          aboutTitle: "한방 보양과 영양 보양을 중심으로 고령 사회의 건강 수요에 답하는 바이오 브랜드.",
+          aboutLead: "지화당 바이오는 동양의 양생 지혜를 바탕으로 현대 기술과 품질 중심 사고를 더해 건강 관리가 단순한 제품을 넘어 신뢰할 수 있는 일상 실천이 되도록 합니다.",
+          aboutItem1Title: "브랜드 언어",
+          aboutItem1Body: "한방 보양과 영양 보양을 현대인의 생활 리듬에 더 가깝게.",
+          aboutItem2Title: "제품 방향",
+          aboutItem2Body: "고품질 바이오 제품에 집중하며, 선제적 관리에서 출발해 고령 사회와 일상 건강 수요에 응답합니다.",
+          aboutItem3Title: "핵심 가치",
+          aboutItem3Body: "건강은 단순한 기능적 효능이 아니라 존엄과 품질을 갖춘 삶의 선택입니다.",
+          visionEyebrow: "비전",
+          visionTitle: "나이 듦이 무거움이 아니라 더 여유롭고 품격 있는 삶의 여정이 되도록.",
+          visionLead: "고품질 바이오 제품과 탄탄한 브랜드 역량을 통해, 노년에도 건강한 신체를 유지하며 자율적이고 품위 있는 삶을 누릴 수 있도록 돕고자 합니다.",
+          visionItem1Title: "장기 목표",
+          visionItem1Body: "전통 있는 브랜드에서 출발해 현대인의 식탁과 일상으로 들어가며, 중화권 한방 보양과 영양 보양 통합 분야의 선도 브랜드가 되는 것입니다.",
+          visionItem2Title: "성장 방향",
+          visionItem2Body: "브랜드, 제품, 그리고 이종 산업 협업을 축으로 시장 확장을 이어가며, 지화당의 보양 철학이 더 많은 생활 장면에서 보이고 실천되도록 하겠습니다.",
+          contactEyebrow: "문의",
+          contactTitle: "브랜드의 장기 가치를 믿는 파트너를 찾습니다.",
+          contactBody: "브랜드 협업, 유통 통합, 자본 교류, 이종 산업 연계 등 다양한 형태로 건강 산업의 미래를 함께 보는 파트너와 더 깊은 비즈니스 대화를 기대합니다.",
+          contactNoteTitle: "파트너십 소식",
+          contactNoteBody: "2026년 4월 12일 비공개 교류회를 시작으로, 지화당은 자본과 다양한 산업 자원을 연결하며 브랜드 확장을 넓히고 생활 밀착형 보양의 장기 비전을 추진해 나갈 것입니다.",
+          footerSite: "Zihedo Biotech Official Website",
+          footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
+        }
+      };
 
       if (!header) {
         return;
@@ -706,6 +1026,92 @@
       if ("ResizeObserver" in window) {
         new ResizeObserver(updateAnchorOffset).observe(header);
       }
+
+      const getInitialLanguage = () => {
+        const storedLanguage = window.localStorage.getItem("zihedo-language");
+
+        if (storedLanguage && translations[storedLanguage]) {
+          return storedLanguage;
+        }
+
+        const browserLanguage = navigator.language.toLowerCase();
+
+        if (browserLanguage.startsWith("zh")) {
+          return "zh-Hant";
+        }
+
+        if (browserLanguage.startsWith("ja")) {
+          return "ja";
+        }
+
+        if (browserLanguage.startsWith("ko")) {
+          return "ko";
+        }
+
+        return "en";
+      };
+
+      const updateMetadata = (dictionary) => {
+        if (titleTag) {
+          titleTag.textContent = dictionary.pageTitle;
+        }
+
+        if (descriptionMeta) {
+          descriptionMeta.setAttribute("content", dictionary.metaDescription);
+        }
+
+        if (ogTitleMeta) {
+          ogTitleMeta.setAttribute("content", dictionary.pageTitle);
+        }
+
+        if (ogDescriptionMeta) {
+          ogDescriptionMeta.setAttribute("content", dictionary.ogDescription);
+        }
+      };
+
+      const applyLanguage = (language) => {
+        const dictionary = translations[language] || translations["zh-Hant"];
+
+        document.documentElement.lang = language;
+        document.documentElement.dataset.language = language;
+
+        translatedNodes.forEach((node) => {
+          const key = node.dataset.i18n;
+
+          if (key && dictionary[key]) {
+            node.textContent = dictionary[key];
+          }
+        });
+
+        translatedAriaNodes.forEach((node) => {
+          const key = node.dataset.i18nAriaLabel;
+
+          if (key && dictionary[key]) {
+            node.setAttribute("aria-label", dictionary[key]);
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.language === language;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        updateMetadata(dictionary);
+        window.localStorage.setItem("zihedo-language", language);
+      };
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const { language } = button.dataset;
+
+          if (language) {
+            applyLanguage(language);
+          }
+        });
+      });
+
+      applyLanguage(getInitialLanguage());
     })();
   </script>
 </body>
