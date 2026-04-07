@@ -671,6 +671,163 @@
       border: 1px solid rgba(231, 200, 159, 0.14);
     }
 
+    .contact-people {
+      margin-top: 0;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      background: var(--panel);
+      padding: 32px;
+    }
+
+    .contact-people-header {
+      margin-bottom: 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .people-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .member-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid rgba(231, 200, 159, 0.1);
+      background:
+        radial-gradient(circle at top left, rgba(217, 176, 127, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(59, 38, 33, 0.72), rgba(35, 23, 21, 0.88));
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.96fr);
+      gap: 22px;
+      padding: 24px;
+    }
+
+    .member-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 30%);
+    }
+
+    .member-copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .member-role {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0;
+      color: var(--gold-soft);
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    html[lang="ja"] .member-role,
+    html[lang="ko"] .member-role {
+      letter-spacing: 0.05em;
+      text-transform: none;
+    }
+
+    .member-name {
+      display: grid;
+      gap: 6px;
+    }
+
+    .member-name strong {
+      font-size: clamp(2rem, 3.2vw, 2.45rem);
+      line-height: 1.05;
+      color: var(--highlight);
+      letter-spacing: 0.14em;
+    }
+
+    .member-name span {
+      color: rgba(246, 238, 231, 0.7);
+      letter-spacing: 0.14em;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+    }
+
+    .member-links {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0;
+    }
+
+    .member-links a,
+    .member-links span {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      align-items: start;
+      gap: 14px;
+      min-height: 0;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(231, 200, 159, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      transition: color 180ms ease;
+    }
+
+    .member-links a:hover {
+      color: var(--highlight);
+    }
+
+    .member-links strong {
+      color: var(--gold-soft);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding-top: 0.12rem;
+    }
+
+    .member-links em {
+      font-style: normal;
+      color: rgba(246, 238, 231, 0.82);
+      min-width: 0;
+      overflow-wrap: anywhere;
+      line-height: 1.7;
+    }
+
+    .business-card-frame {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      align-self: stretch;
+      border-radius: 20px;
+      padding: 10px;
+      background:
+        linear-gradient(180deg, rgba(231, 200, 159, 0.08), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(231, 200, 159, 0.1);
+    }
+
+    .business-card-frame::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .business-card-frame img {
+      width: 100%;
+      aspect-ratio: 1089 / 1325;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    }
+
     footer {
       padding: 32px 0 48px;
     }
@@ -712,7 +869,23 @@
       }
 
       .site-header .shell {
-        gap: 16px;
+        gap: 10px;
+        padding: 14px 0 12px;
+      }
+
+      .brand-mini {
+        gap: 3px;
+      }
+
+      .brand-mini strong {
+        font-size: 1.16rem;
+        letter-spacing: 0.2em;
+      }
+
+      .brand-mini span {
+        display: block;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
       }
 
       .hero {
@@ -722,9 +895,31 @@
       .hero-card,
       .focus-card,
       .vision-card,
-      .cta-card {
+      .cta-card,
+      .contact-people {
         padding: 24px;
         border-radius: 22px;
+      }
+
+      .member-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        border-radius: 20px;
+        gap: 18px;
+      }
+
+      .member-copy {
+        gap: 16px;
+      }
+
+      .member-name strong {
+        font-size: 1.72rem;
+      }
+
+      .member-links a,
+      .member-links span {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 12px;
       }
 
       .hero-logo .subline,
@@ -742,50 +937,113 @@
       .nav {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+        gap: 8px;
+        align-items: center;
       }
 
       .nav a {
-        width: 100%;
         min-width: 0;
-        min-height: 42px;
-        padding: 0 14px;
-        font-size: 0.76rem;
-        letter-spacing: 0.1em;
+        min-height: 34px;
+        padding: 0 10px;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
         text-align: center;
       }
 
       .language-switcher {
-        width: 100%;
-        min-width: 0;
+        width: 96px;
+        min-width: 96px;
       }
 
       .language-trigger {
-        min-height: 42px;
-        padding: 0 14px;
+        min-height: 34px;
+        padding: 0 10px;
       }
 
       .language-trigger-label {
-        gap: 8px;
+        gap: 6px;
       }
 
       .language-trigger-label strong {
-        font-size: 0.76rem;
-      }
-
-      .language-trigger-label span {
         font-size: 0.72rem;
       }
 
+      .language-trigger-label span {
+        font-size: 0.68rem;
+      }
+
       .language-menu {
-        width: 100%;
-        top: calc(100% + 8px);
+        width: min(220px, calc(100vw - 32px));
+        top: calc(100% + 6px);
+        left: auto;
+        right: 0;
+        transform: translate(0, -4px);
+      }
+
+      .language-switcher.is-open .language-menu {
+        transform: translate(0, 0);
       }
 
       .language-option {
         min-height: 42px;
         padding: 0 12px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .site-header .shell {
+        gap: 8px;
+      }
+
+      .brand-mini strong {
+        font-size: 1.08rem;
+      }
+
+      .brand-mini span {
+        font-size: 0.64rem;
+        letter-spacing: 0.08em;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .language-switcher {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+        min-width: 0;
+      }
+
+      .nav a,
+      .language-switcher {
+        min-width: 0;
+      }
+
+      .contact-people {
+        padding: 20px;
+      }
+
+      .member-card {
+        padding: 18px;
+      }
+
+      .member-links a,
+      .member-links span {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 0;
+      }
+
+      .member-links strong,
+      .member-name span {
+        letter-spacing: 0.1em;
+      }
+
+      .business-card-frame {
+        padding: 8px;
+        border-radius: 18px;
       }
     }
 
@@ -818,7 +1076,7 @@
       <nav class="nav" data-i18n-aria-label="navAriaLabel">
         <a href="#about" data-i18n="navAbout">品牌理念</a>
         <a href="#vision" data-i18n="navVision">未來願景</a>
-        <a href="#contact" data-i18n="navContact">合作洽詢</a>
+        <a href="#contact" data-i18n="navContact">核心成員</a>
         <div class="language-switcher">
           <button
             class="language-trigger"
@@ -885,7 +1143,7 @@
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#about" data-i18n="heroPrimaryCta">品牌理念</a>
-              <a class="button secondary" href="#contact" data-i18n="heroSecondaryCta">合作洽詢</a>
+              <a class="button secondary" href="#contact" data-i18n="heroSecondaryCta">核心成員</a>
             </div>
           </div>
         </article>
@@ -954,23 +1212,74 @@
 
     <section id="contact">
       <div class="shell">
-        <article class="cta-card">
-          <div>
-            <div class="eyebrow" data-i18n="contactEyebrow">合作洽詢</div>
-            <h2 data-i18n="contactTitle">尋找相信品牌長線價值的合作夥伴。</h2>
-            <p data-i18n="contactBody">
-              無論是品牌合作、通路整合、資本交流或跨界串聯，
-              滋和堂生醫都期待與關注健康產業未來的夥伴展開更深入的商業對話。
-            </p>
+        <div class="contact-people" aria-labelledby="core-members-title">
+          <div class="contact-people-header">
+            <div id="core-members-title" class="eyebrow" data-i18n="contactPeopleEyebrow">核心成員</div>
+            <h2 data-i18n="contactPeopleTitle">核心成員</h2>
           </div>
-          <div class="cta-note">
-            <h3 data-i18n="contactNoteTitle">合作洽詢</h3>
-            <p data-i18n="contactNoteBody">
-              以 2026 年 4 月 12 日閉門交流會為起點，滋和堂將持續鏈結資本與跨界資源，
-              擴大品牌佈局，推進生活化保養的長期願景。
-            </p>
+          <div class="people-grid">
+            <article class="member-card">
+              <div class="member-copy">
+                <div class="member-name">
+                  <div class="member-role" data-i18n="contactRoleChairman">董事長</div>
+                  <strong>謝易達</strong>
+                  <span>Allen</span>
+                </div>
+                <div class="member-links">
+                  <a href="tel:+886976265942" aria-label="Call Allen Hsieh">
+                    <strong data-i18n="contactLabelPhone">Phone</strong>
+                    <em>0976-265942</em>
+                  </a>
+                  <a href="mailto:allen0915959987@gmail.com" aria-label="Email Allen Hsieh">
+                    <strong data-i18n="contactLabelEmail">Email</strong>
+                    <em>allen0915959987@gmail.com</em>
+                  </a>
+                  <span>
+                    <strong data-i18n="contactLabelAddress">Address</strong>
+                    <em>104 臺北市中山區新生北路一段59號</em>
+                  </span>
+                </div>
+              </div>
+              <div class="business-card-frame">
+                <img
+                  src="assets/contact-hsieh.jpg"
+                  alt="滋和堂生醫董事長謝易達名片正反面"
+                  loading="lazy"
+                >
+              </div>
+            </article>
+
+            <article class="member-card">
+              <div class="member-copy">
+                <div class="member-name">
+                  <div class="member-role" data-i18n="contactRoleSupervisor">監察人</div>
+                  <strong>汪晁漢</strong>
+                </div>
+                <div class="member-links">
+                  <a href="tel:+886970571188" aria-label="Call Wang Chaohan">
+                    <strong data-i18n="contactLabelPhone">Phone</strong>
+                    <em>0970-571188</em>
+                  </a>
+                  <a href="mailto:s0970571188@gmail.com" aria-label="Email Wang Chaohan">
+                    <strong data-i18n="contactLabelEmail">Email</strong>
+                    <em>s0970571188@gmail.com</em>
+                  </a>
+                  <span>
+                    <strong data-i18n="contactLabelAddress">Address</strong>
+                    <em>104 臺北市中山區新生北路一段59號</em>
+                  </span>
+                </div>
+              </div>
+              <div class="business-card-frame">
+                <img
+                  src="assets/contact-wang.jpg"
+                  alt="滋和堂生醫監察人汪晁漢名片正反面"
+                  loading="lazy"
+                >
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
       </div>
     </section>
   </main>
@@ -1016,14 +1325,14 @@
           brandMiniTagline: "滋和堂生醫｜日本技術源",
           navAbout: "品牌理念",
           navVision: "未來願景",
-          navContact: "合作洽詢",
+          navContact: "核心成員",
           heroSubline: "滋和堂生醫｜日本技術源",
           heroOrigin: "SINCE 1895 · NARA, JAPAN",
           heroTitle: "讓健康保養，成為優雅生活的日常修養。",
           heroBody1: "面對台灣逐年高齡化的人口結構，健康不再只是被動調理，更需要主動保養。滋和堂生醫致力於結合傳統智慧與現代科技，打造具代表性的藥補與食補品牌。",
           heroBody2: "我們希望透過高品質的生醫產品，讓變老不再是負擔，而是保有體魄、尊嚴與生活品質的優雅過程。",
           heroPrimaryCta: "品牌理念",
-          heroSecondaryCta: "合作洽詢",
+          heroSecondaryCta: "核心成員",
           aboutEyebrow: "品牌理念",
           aboutTitle: "以藥補與食補為核心，回應高齡社會健康需求的生醫品牌。",
           aboutLead: "滋和堂生醫以東方養生智慧為根基，融入現代科技與品質思維，讓健康保養不只停留在產品層面，而是成為值得信任的日常實踐。",
@@ -1040,11 +1349,13 @@
           visionItem1Body: "建構生活化保養的商業生態圈，從老字號出發，走進現代人的餐桌與日常，成為華人世界藥補與食補跨界整合的領導品牌。",
           visionItem2Title: "發展方向",
           visionItem2Body: "以品牌、產品與跨界合作為支點，持續擴大市場佈局，讓滋和堂的保養理念在更多生活場景中被看見、被實踐。",
-          contactEyebrow: "合作洽詢",
-          contactTitle: "尋找相信品牌長線價值的合作夥伴。",
-          contactBody: "無論是品牌合作、通路整合、資本交流或跨界串聯，滋和堂生醫都期待與關注健康產業未來的夥伴展開更深入的商業對話。",
-          contactNoteTitle: "合作洽詢",
-          contactNoteBody: "以 2026 年 4 月 12 日閉門交流會為起點，滋和堂將持續鏈結資本與跨界資源，擴大品牌佈局，推進生活化保養的長期願景。",
+          contactPeopleEyebrow: "核心成員",
+          contactPeopleTitle: "核心成員",
+          contactRoleSupervisor: "監察人",
+          contactRoleChairman: "董事長",
+          contactLabelPhone: "電話",
+          contactLabelEmail: "信箱",
+          contactLabelAddress: "地址",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © 滋和堂生醫 All Rights Reserved."
         },
@@ -1060,14 +1371,14 @@
           brandMiniTagline: "Zihedo Biotech | Japanese Technical Heritage",
           navAbout: "About",
           navVision: "Vision",
-          navContact: "Contact",
+          navContact: "Team",
           heroSubline: "Zihedo Biotech | Japanese Technical Heritage",
           heroOrigin: "SINCE 1895 · NARA, JAPAN",
           heroTitle: "Make wellness care part of an elegant daily life.",
           heroBody1: "As Taiwan's population continues to age, health can no longer rely on passive recovery alone. Zihedo Biotech combines traditional wisdom with modern science to shape a distinctive herbal and nutritional wellness brand.",
           heroBody2: "Through high-quality biotech products, we hope aging feels less like a burden and more like a graceful journey with strength, dignity, and quality of life.",
           heroPrimaryCta: "About",
-          heroSecondaryCta: "Contact",
+          heroSecondaryCta: "Team",
           aboutEyebrow: "About",
           aboutTitle: "A biotech brand centered on herbal and nutritional wellness for the needs of an aging society.",
           aboutLead: "Rooted in Eastern wellness wisdom, Zihedo Biotech integrates modern science and quality thinking so health care becomes more than a product. It becomes a trusted daily practice.",
@@ -1084,11 +1395,13 @@
           visionItem1Body: "Build a lifestyle wellness ecosystem that starts from a heritage brand, enters modern tables and routines, and becomes a leading integrated brand for herbal and nutritional wellness across the Chinese-speaking world.",
           visionItem2Title: "Growth Direction",
           visionItem2Body: "Using brand strength, product excellence, and cross-industry partnerships as leverage, we will continue expanding our market presence and bringing Zihedo's wellness philosophy into more everyday scenarios.",
-          contactEyebrow: "Contact",
-          contactTitle: "Seeking partners who believe in long-term brand value.",
-          contactBody: "Whether in brand collaboration, channel integration, capital exchange, or cross-industry partnerships, Zihedo Biotech welcomes deeper business conversations with partners who care about the future of the health industry.",
-          contactNoteTitle: "Partnership Update",
-          contactNoteBody: "Starting with the private exchange on April 12, 2026, Zihedo will continue connecting capital and cross-sector resources to expand the brand footprint and advance its long-term lifestyle wellness vision.",
+          contactPeopleEyebrow: "Core Members",
+          contactPeopleTitle: "Core Members",
+          contactRoleSupervisor: "Supervisor",
+          contactRoleChairman: "Chairman",
+          contactLabelPhone: "Phone",
+          contactLabelEmail: "Email",
+          contactLabelAddress: "Address",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
         },
@@ -1104,14 +1417,14 @@
           brandMiniTagline: "滋和堂生医｜日本技術の系譜",
           navAbout: "ブランド理念",
           navVision: "将来ビジョン",
-          navContact: "お問い合わせ",
+          navContact: "主要メンバー",
           heroSubline: "滋和堂生医｜日本技術の系譜",
           heroOrigin: "SINCE 1895 · NARA, JAPAN",
           heroTitle: "健やかな手入れを、優雅な日常のたしなみに。",
           heroBody1: "台湾では高齢化が年々進み、健康は受け身のケアだけではなく、主体的な養生がより重要になっています。滋和堂生医は、伝統の知恵と現代技術を融合し、象徴的な漢方補養・栄養補養ブランドを築いています。",
           heroBody2: "高品質なバイオテック製品を通じて、年齢を重ねることを負担ではなく、体力と尊厳、生活の質を保つ優雅なプロセスにしたいと考えています。",
           heroPrimaryCta: "ブランド理念",
-          heroSecondaryCta: "お問い合わせ",
+          heroSecondaryCta: "主要メンバー",
           aboutEyebrow: "ブランド理念",
           aboutTitle: "漢方補養と栄養補養を核に、高齢化社会の健康ニーズに応えるバイオブランド。",
           aboutLead: "滋和堂生医は東洋の養生思想を基盤に、現代技術と品質への視点を融合し、健康管理を単なる製品ではなく、信頼できる日常の実践へと高めます。",
@@ -1128,11 +1441,13 @@
           visionItem1Body: "老舗ブランドから出発し、現代の食卓と日常へ入り込み、華人圏における漢方補養と栄養補養の統合ブランドとしてリーダーになることを目指します。",
           visionItem2Title: "発展方向",
           visionItem2Body: "ブランド、製品、異業種連携を軸に市場展開を拡大し、滋和堂の養生理念がより多くの生活シーンで見られ、実践されるようにしていきます。",
-          contactEyebrow: "お問い合わせ",
-          contactTitle: "ブランドの長期的価値を信じるパートナーを求めています。",
-          contactBody: "ブランド協業、流通連携、資本交流、異業種コラボレーションなどを通じて、健康産業の未来に関心を持つ皆さまと、より深い対話を進めたいと考えています。",
-          contactNoteTitle: "パートナーシップ情報",
-          contactNoteBody: "2026年4月12日の招待制交流会を起点に、滋和堂は資本と異業種リソースを結びつけ、ブランド展開を広げながら、日常に根ざした養生の長期ビジョンを前進させていきます。",
+          contactPeopleEyebrow: "主要メンバー",
+          contactPeopleTitle: "主要メンバー",
+          contactRoleSupervisor: "監査役",
+          contactRoleChairman: "会長",
+          contactLabelPhone: "電話",
+          contactLabelEmail: "メール",
+          contactLabelAddress: "住所",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © 滋和堂生医 All Rights Reserved."
         },
@@ -1148,14 +1463,14 @@
           brandMiniTagline: "지화당 바이오 | 일본 기술의 뿌리",
           navAbout: "브랜드 철학",
           navVision: "비전",
-          navContact: "문의",
+          navContact: "핵심 멤버",
           heroSubline: "지화당 바이오 | 일본 기술의 뿌리",
           heroOrigin: "SINCE 1895 · NARA, JAPAN",
           heroTitle: "건강 관리를 우아한 일상의 수양으로.",
           heroBody1: "대만은 해마다 고령화가 진행되고 있으며, 건강은 더 이상 수동적인 회복만으로는 충분하지 않습니다. 지화당 바이오는 전통의 지혜와 현대 기술을 결합해 차별화된 한방 보양 및 영양 보양 브랜드를 만들어갑니다.",
           heroBody2: "고품질 바이오 제품을 통해 나이 듦이 부담이 아니라 체력과 존엄, 삶의 질을 지켜가는 우아한 과정이 되기를 바랍니다.",
           heroPrimaryCta: "브랜드 철학",
-          heroSecondaryCta: "문의",
+          heroSecondaryCta: "핵심 멤버",
           aboutEyebrow: "브랜드 철학",
           aboutTitle: "한방 보양과 영양 보양을 중심으로 고령 사회의 건강 수요에 답하는 바이오 브랜드.",
           aboutLead: "지화당 바이오는 동양의 양생 지혜를 바탕으로 현대 기술과 품질 중심 사고를 더해 건강 관리가 단순한 제품을 넘어 신뢰할 수 있는 일상 실천이 되도록 합니다.",
@@ -1172,11 +1487,13 @@
           visionItem1Body: "전통 있는 브랜드에서 출발해 현대인의 식탁과 일상으로 들어가며, 중화권 한방 보양과 영양 보양 통합 분야의 선도 브랜드가 되는 것입니다.",
           visionItem2Title: "성장 방향",
           visionItem2Body: "브랜드, 제품, 그리고 이종 산업 협업을 축으로 시장 확장을 이어가며, 지화당의 보양 철학이 더 많은 생활 장면에서 보이고 실천되도록 하겠습니다.",
-          contactEyebrow: "문의",
-          contactTitle: "브랜드의 장기 가치를 믿는 파트너를 찾습니다.",
-          contactBody: "브랜드 협업, 유통 통합, 자본 교류, 이종 산업 연계 등 다양한 형태로 건강 산업의 미래를 함께 보는 파트너와 더 깊은 비즈니스 대화를 기대합니다.",
-          contactNoteTitle: "파트너십 소식",
-          contactNoteBody: "2026년 4월 12일 비공개 교류회를 시작으로, 지화당은 자본과 다양한 산업 자원을 연결하며 브랜드 확장을 넓히고 생활 밀착형 보양의 장기 비전을 추진해 나갈 것입니다.",
+          contactPeopleEyebrow: "핵심 멤버",
+          contactPeopleTitle: "핵심 멤버",
+          contactRoleSupervisor: "감사",
+          contactRoleChairman: "회장",
+          contactLabelPhone: "전화",
+          contactLabelEmail: "이메일",
+          contactLabelAddress: "주소",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
         }
