@@ -67,6 +67,10 @@
       font-family: "Cormorant Garamond", "Noto Serif TC", serif;
     }
 
+    html[lang="pl"] body {
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+    }
+
     html[lang="ja"] body {
       font-family: "Noto Serif JP", "Noto Serif TC", serif;
     }
@@ -178,7 +182,11 @@
     html[lang="en"] .brand-mini span,
     html[lang="en"] .nav a,
     html[lang="en"] .eyebrow,
-    html[lang="en"] .footer-copy {
+    html[lang="en"] .footer-copy,
+    html[lang="pl"] .brand-mini span,
+    html[lang="pl"] .nav a,
+    html[lang="pl"] .eyebrow,
+    html[lang="pl"] .footer-copy {
       letter-spacing: 0.14em;
     }
 
@@ -1102,6 +1110,11 @@
               <span class="language-option-name">English</span>
               <span class="language-option-check" aria-hidden="true">●</span>
             </button>
+            <button class="language-option" type="button" role="menuitemradio" aria-checked="false" data-language="pl">
+              <span class="language-option-code">PL</span>
+              <span class="language-option-name">Polski</span>
+              <span class="language-option-check" aria-hidden="true">●</span>
+            </button>
             <button class="language-option" type="button" role="menuitemradio" aria-checked="false" data-language="ja">
               <span class="language-option-code">JA</span>
               <span class="language-option-name">日本語</span>
@@ -1308,6 +1321,7 @@
       const languageLabels = {
         "zh-Hant": { code: "ZH", name: "中文" },
         en: { code: "EN", name: "English" },
+        pl: { code: "PL", name: "Polski" },
         ja: { code: "JA", name: "日本語" },
         ko: { code: "KO", name: "한국어" }
       };
@@ -1404,6 +1418,52 @@
           contactLabelAddress: "Address",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
+        },
+        pl: {
+          pageTitle: "Zihedo Biotech",
+          metaDescription: "Zihedo Biotech łączy tradycyjną mądrość z nowoczesną nauką, tworząc zintegrowaną markę z obszaru ziołowego i żywieniowego dobrostanu dla eleganckiej codziennej troski o zdrowie.",
+          ogDescription: "Koncentrując się na ziołowym i żywieniowym dobrostanie, Zihedo odpowiada na potrzeby starzejącego się społeczeństwa i czyni dbanie o zdrowie częścią eleganckiej codzienności.",
+          brandMiniAriaLabel: "Strona główna Zihedo Biotech",
+          navAriaLabel: "Główna nawigacja",
+          languageSwitcherAriaLabel: "Przełącznik języka",
+          heroLogoAriaLabel: "Identyfikacja marki Zihedo Biotech",
+          brandMiniTitle: "ZIHÉDO",
+          brandMiniTagline: "Zihedo Biotech | Japońskie dziedzictwo technologiczne",
+          navAbout: "O marce",
+          navVision: "Wizja",
+          navContact: "Zespół",
+          heroSubline: "Zihedo Biotech | Japońskie dziedzictwo technologiczne",
+          heroOrigin: "OD 1895 · NARA, JAPONIA",
+          heroTitle: "Niech troska o zdrowie stanie się częścią eleganckiego codziennego życia.",
+          heroBody1: "Wraz ze starzeniem się społeczeństwa Tajwanu zdrowie nie może już opierać się wyłącznie na biernej regeneracji. Zihedo Biotech łączy tradycyjną mądrość z nowoczesną nauką, tworząc wyrazistą markę ziołowego i żywieniowego dobrostanu.",
+          heroBody2: "Dzięki wysokiej jakości produktom biotechnologicznym chcemy, by starzenie się było mniej ciężarem, a bardziej pełną siły, godności i jakości życia elegancką drogą.",
+          heroPrimaryCta: "O marce",
+          heroSecondaryCta: "Zespół",
+          aboutEyebrow: "O marce",
+          aboutTitle: "Marka biotechnologiczna skoncentrowana na ziołowym i żywieniowym dobrostanie, odpowiadająca na potrzeby starzejącego się społeczeństwa.",
+          aboutLead: "Zakotwiczona w mądrości wschodnich praktyk zdrowotnych, Zihedo Biotech łączy nowoczesną naukę i myślenie o jakości, dzięki czemu troska o zdrowie staje się czymś więcej niż produktem. Staje się zaufaną codzienną praktyką.",
+          aboutItem1Title: "Język marki",
+          aboutItem1Body: "Przybliżać ziołowy i żywieniowy dobrostan do rytmu współczesnego życia.",
+          aboutItem2Title: "Kierunek produktów",
+          aboutItem2Body: "Skupiać się na produktach biotechnologicznych klasy premium, które zaczynają się od profilaktycznej troski i odpowiadają zarówno na wyzwania starzejącego się społeczeństwa, jak i codzienne potrzeby zdrowotne.",
+          aboutItem3Title: "Wartość podstawowa",
+          aboutItem3Body: "Zdrowie to nie tylko obietnica funkcjonalna, ale godny i wysokiej jakości sposób życia.",
+          visionEyebrow: "Wizja",
+          visionTitle: "Starzenie się nie powinno być ciężarem, lecz spokojną, pewną i pełną jakości drogą życia.",
+          visionLead: "Dzięki mocnym produktom i stabilnym fundamentom marki chcemy pomagać osobom starszym zachować sprawność fizyczną oraz cieszyć się niezależnym, godnym i wysokiej jakości życiem.",
+          visionItem1Title: "Cel długoterminowy",
+          visionItem1Body: "Budować ekosystem codziennego dobrostanu, który wyrasta z marki o dziedzictwie, trafia na współczesne stoły i do codziennych rytuałów, a następnie staje się wiodącą zintegrowaną marką ziołowego i żywieniowego dobrostanu w świecie chińskojęzycznym.",
+          visionItem2Title: "Kierunek rozwoju",
+          visionItem2Body: "Wykorzystując siłę marki, jakość produktów i partnerstwa międzybranżowe, będziemy dalej rozszerzać obecność rynkową i wprowadzać filozofię dobrostanu Zihedo do coraz większej liczby codziennych sytuacji.",
+          contactPeopleEyebrow: "Kluczowi członkowie",
+          contactPeopleTitle: "Kluczowi członkowie",
+          contactRoleSupervisor: "Audytor",
+          contactRoleChairman: "Przewodniczący",
+          contactLabelPhone: "Telefon",
+          contactLabelEmail: "E-mail",
+          contactLabelAddress: "Adres",
+          footerSite: "Oficjalna strona Zihedo Biotech",
+          footerCopyright: "Copyright © Zihedo Biotech. Wszelkie prawa zastrzeżone."
         },
         ja: {
           pageTitle: "滋和堂生医 Zihedo Biotech",
@@ -1531,6 +1591,10 @@
 
         if (browserLanguage.startsWith("zh")) {
           return "zh-Hant";
+        }
+
+        if (browserLanguage.startsWith("pl")) {
+          return "pl";
         }
 
         if (browserLanguage.startsWith("ja")) {
