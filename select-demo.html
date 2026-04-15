@@ -151,30 +151,24 @@
 
     .nav {
       justify-self: end;
-      display: inline-grid;
-      grid-template-columns: repeat(4, minmax(96px, auto));
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
-      max-width: 100%;
-      padding: 6px;
-      border: 1px solid rgba(231, 200, 159, 0.1);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.025);
+      justify-content: flex-end;
+      gap: 12px;
     }
 
     .nav a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      min-width: 0;
-      padding: 0 16px;
-      border: 1px solid transparent;
+      min-height: 44px;
+      padding: 0 18px;
       border-radius: 999px;
-      background: transparent;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      white-space: nowrap;
+      border: 1px solid rgba(231, 200, 159, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.84rem;
+      letter-spacing: 0.14em;
       transition: color 180ms ease, transform 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
@@ -186,16 +180,9 @@
     }
 
     .nav a.is-active {
-      color: #281917;
-      border-color: rgba(255, 244, 232, 0.28);
-      background: linear-gradient(135deg, var(--gold-soft), var(--copper));
-      font-weight: 700;
-    }
-
-    .nav a.is-active:hover {
-      color: #281917;
-      border-color: rgba(255, 244, 232, 0.36);
-      background: linear-gradient(135deg, #f0d5ae, #c88e6c);
+      color: var(--gold-soft);
+      border-color: rgba(231, 200, 159, 0.26);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     main {
@@ -561,24 +548,21 @@
       .nav {
         justify-self: stretch;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
         width: 100%;
         min-width: 0;
-        padding: 7px;
-        border-radius: 18px;
+        align-items: center;
       }
 
       .nav a {
-        min-height: 36px;
+        min-height: 34px;
         min-width: 0;
-        width: 100%;
         overflow: hidden;
-        padding: 0 8px;
+        padding: 0 10px;
         font-size: 0.72rem;
         letter-spacing: 0.06em;
         text-align: center;
-        white-space: nowrap;
       }
 
       .product-card {
