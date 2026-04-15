@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>滋和堂嚴選 Zihedo Select</title>
+  <meta
+    name="description"
+    content="滋和堂嚴選以日常可親近的食養形式，延續滋和堂生醫的養生智慧與品質標準，讓保養成為餐桌、午後與生活節奏中的優雅選擇。"
+  >
+  <meta name="theme-color" content="#251614">
+  <meta property="og:title" content="滋和堂嚴選 Zihedo Select">
+  <meta
+    property="og:description"
+    content="從溫潤雞湯到機能甜點，滋和堂嚴選讓藥補與食補走進現代生活。"
+  >
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #251614;
+      --bg-deep: #1b1110;
+      --bg-soft: #35231f;
+      --panel: rgba(69, 46, 40, 0.78);
+      --panel-strong: rgba(84, 57, 49, 0.92);
+      --text: #f8efe8;
+      --muted: rgba(248, 239, 232, 0.72);
+      --quiet: rgba(248, 239, 232, 0.54);
+      --line: rgba(230, 193, 154, 0.18);
+      --gold: #d9b07f;
+      --gold-soft: #e8c99f;
+      --copper: #bf8666;
+      --jade: #8fb7a0;
+      --plum: #c9949d;
+      --highlight: #fff4e8;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+      --container: min(1160px, calc(100% - 48px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: "Noto Serif TC", serif;
+      font-feature-settings: "kern" 1, "liga" 1;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 6%, rgba(143, 183, 160, 0.18), transparent 24%),
+        radial-gradient(circle at 88% 12%, rgba(201, 148, 157, 0.14), transparent 22%),
+        linear-gradient(180deg, #3a2521 0%, var(--bg) 34%, var(--bg-deep) 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.13;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(231, 200, 159, 0.08);
+      background: rgba(29, 18, 17, 0.66);
+      backdrop-filter: blur(18px);
+    }
+
+    .site-header .shell {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 28px;
+      padding: 18px 0;
+    }
+
+    .brand-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: max-content;
+    }
+
+    .brand-mini strong,
+    .section-kicker {
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+    }
+
+    .brand-mini strong {
+      color: var(--gold-soft);
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+    }
+
+    .brand-mini span,
+    .nav a,
+    .product-label,
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-mini span {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+    }
+
+    .nav {
+      justify-self: end;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(231, 200, 159, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.84rem;
+      letter-spacing: 0.14em;
+      transition: color 180ms ease, transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .nav a:hover {
+      color: var(--gold-soft);
+      transform: translateY(-1px);
+      border-color: rgba(231, 200, 159, 0.26);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav a.is-active {
+      color: var(--gold-soft);
+      border-color: rgba(231, 200, 159, 0.26);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    main {
+      overflow: hidden;
+      padding-bottom: clamp(96px, 12vh, 180px);
+    }
+
+    .product-card {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h2,
+    h3 {
+      color: var(--highlight);
+      font-weight: 600;
+      line-height: 1.2;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(1.75rem, 3.2vw, 2.8rem);
+    }
+
+    h3 {
+      font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    section {
+      padding: 58px 0;
+      scroll-margin-top: 130px;
+    }
+
+    .products-section {
+      padding-top: clamp(58px, 8vw, 98px);
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.48fr);
+      gap: 32px;
+      align-items: end;
+    }
+
+    .section-kicker {
+      color: var(--gold-soft);
+      font-size: 0.92rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .intro-note {
+      padding-left: 22px;
+      border-left: 1px solid rgba(231, 200, 159, 0.2);
+    }
+
+    .products {
+      display: grid;
+      gap: 32px;
+      margin-top: 34px;
+    }
+
+    .product-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(300px, 0.84fr) minmax(0, 1.16fr);
+      gap: 0;
+      min-height: 560px;
+      overflow: hidden;
+      border-radius: 30px;
+      background: var(--panel);
+    }
+
+    .product-media {
+      position: relative;
+      min-height: 560px;
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 52% 40%, rgba(255, 244, 232, 0.18), transparent 24%),
+        linear-gradient(145deg, rgba(62, 41, 36, 0.82), rgba(26, 17, 15, 0.94));
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .product-media::before,
+    .product-media::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .product-media::before {
+      inset: 28px;
+      border: 1px solid rgba(231, 200, 159, 0.12);
+      border-radius: 24px;
+    }
+
+    .product-media::after {
+      width: 74%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 201, 159, 0.08), transparent 66%);
+      z-index: -1;
+    }
+
+    .product-art {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(330px, 72%);
+      aspect-ratio: 0.82;
+    }
+
+    .product-art::before {
+      content: "";
+      position: absolute;
+      bottom: 7%;
+      width: 82%;
+      height: 13%;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.26);
+      filter: blur(12px);
+    }
+
+    .broth-pack {
+      position: relative;
+      width: 70%;
+      aspect-ratio: 0.64;
+      border: 1px solid rgba(255, 244, 232, 0.16);
+      border-radius: 34px 34px 26px 26px;
+      background:
+        linear-gradient(180deg, rgba(255, 244, 232, 0.92) 0 19%, #d2a066 20% 45%, #5a2e25 46% 100%);
+      box-shadow: 0 34px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    .broth-pack::before {
+      content: "";
+      position: absolute;
+      top: 24%;
+      left: 50%;
+      width: 62%;
+      aspect-ratio: 1.38;
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at center, #fee1a2 0 38%, #b76636 39% 58%, #3e201b 60% 100%);
+      transform: translateX(-50%);
+      box-shadow: inset 0 0 0 8px rgba(255, 244, 232, 0.1);
+    }
+
+    .broth-pack::after {
+      content: "ZIHEDO";
+      position: absolute;
+      right: 0;
+      bottom: 12%;
+      left: 0;
+      color: rgba(255, 244, 232, 0.78);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-align: center;
+    }
+
+    .dessert-pack {
+      position: relative;
+      width: 76%;
+      aspect-ratio: 0.78;
+      border: 1px solid rgba(255, 244, 232, 0.14);
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(255, 236, 156, 0.92) 0 22%, transparent 23%),
+        linear-gradient(180deg, #2a1817 0 62%, #b88945 63% 100%);
+      box-shadow: 0 34px 70px rgba(0, 0, 0, 0.34);
+      transform: rotate(-4deg);
+    }
+
+    .dessert-pack::before {
+      content: "";
+      position: absolute;
+      top: 24%;
+      left: 50%;
+      width: 58%;
+      aspect-ratio: 1;
+      border-radius: 32% 68% 44% 56% / 58% 38% 62% 42%;
+      background: linear-gradient(145deg, #f1c75d, #8c5d31);
+      transform: translateX(-50%) rotate(18deg);
+      box-shadow:
+        -34px 36px 0 -18px #3d211e,
+        34px 42px 0 -20px #f1d36f;
+    }
+
+    .dessert-pack::after {
+      content: "ZIHEDO";
+      position: absolute;
+      right: 0;
+      bottom: 13%;
+      left: 0;
+      color: rgba(255, 244, 232, 0.84);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-align: center;
+    }
+
+    .product-copy {
+      min-width: 0;
+      display: grid;
+      align-content: center;
+      gap: 26px;
+      padding: clamp(30px, 5vw, 56px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 28%),
+        var(--panel);
+    }
+
+    .product-label {
+      color: var(--gold-soft);
+      letter-spacing: 0.18em;
+    }
+
+    .product-title {
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-title span {
+      color: var(--quiet);
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+      font-size: 1.02rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .product-lead {
+      color: var(--highlight);
+      font-size: clamp(1.12rem, 1.7vw, 1.34rem);
+      line-height: 1.85;
+    }
+
+    .product-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .point {
+      min-height: 116px;
+      padding: 18px;
+      border: 1px solid rgba(231, 200, 159, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      display: grid;
+      align-content: start;
+      gap: 9px;
+    }
+
+    .point strong {
+      color: var(--gold-soft);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    .point span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .product-tone {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tone-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border: 1px solid rgba(231, 200, 159, 0.14);
+      border-radius: 999px;
+      color: rgba(248, 239, 232, 0.84);
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 0.88rem;
+    }
+
+    footer {
+      padding: 32px 0 48px;
+    }
+
+    .footer-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(231, 200, 159, 0.12);
+      color: rgba(246, 238, 231, 0.56);
+    }
+
+    @media (max-width: 1040px) {
+      .intro {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+
+      .product-media {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --container: min(1120px, calc(100vw - 32px));
+      }
+
+      .site-header .shell,
+      .footer-copy {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .site-header .shell {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 14px 0;
+      }
+
+      .brand-mini {
+        gap: 3px;
+      }
+
+      .brand-mini strong {
+        font-size: 1.16rem;
+        letter-spacing: 0.2em;
+      }
+
+      .brand-mini span {
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+      }
+
+      .nav {
+        justify-self: stretch;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        min-width: 0;
+        align-items: center;
+      }
+
+      .nav a {
+        min-height: 34px;
+        min-width: 0;
+        overflow: hidden;
+        padding: 0 10px;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-align: center;
+      }
+
+      .product-card {
+        border-radius: 22px;
+      }
+
+      .product-copy {
+        padding: 24px;
+      }
+
+      h2 {
+        font-size: 1.54rem;
+        text-wrap: wrap;
+        word-break: break-all;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .product-media {
+        min-height: 340px;
+      }
+
+      .product-points {
+        grid-template-columns: 1fr;
+      }
+
+      .point {
+        min-height: 0;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      :root {
+        --container: min(358px, calc(100vw - 32px));
+      }
+
+      .shell {
+        margin-left: 16px;
+        margin-right: auto;
+      }
+
+      .product-copy {
+        padding: 22px;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      h2 {
+        font-size: 1.42rem;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-art {
+        width: min(280px, 72%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand-mini" href="index.html" aria-label="回到滋和堂生醫首頁">
+        <strong>ZIHÉDO</strong>
+        <span>滋和堂生醫｜日本技術源</span>
+      </a>
+      <nav class="nav" aria-label="滋和堂嚴選頁面導覽">
+        <a href="index.html#about">品牌理念</a>
+        <a href="index.html#vision">未來願景</a>
+        <a href="index.html#contact">核心成員</a>
+        <a class="is-active" href="#products" aria-current="page">產品系列</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="products" class="products-section" aria-labelledby="products-title">
+      <div class="shell">
+        <div class="intro">
+          <div>
+            <div class="section-kicker">Selected Products</div>
+            <h2 id="products-title">滋和堂嚴選產品</h2>
+          </div>
+        </div>
+
+        <div class="products">
+          <article class="product-card">
+            <figure class="product-media" aria-label="古法新萃御膳雞湯產品圖片區">
+              <div class="product-art" aria-hidden="true">
+                <div class="broth-pack"></div>
+              </div>
+            </figure>
+            <div class="product-copy">
+              <div class="product-title">
+                <div class="product-label">No. 01｜Vital Broth</div>
+                <h3>古法新萃御膳雞湯</h3>
+                <span>Eight-Hour Essence, Three-Minute Ritual</span>
+              </div>
+              <p class="product-lead">
+                你花 3 分鐘，就能喝到我們熬煮 8 小時的濃郁雞湯。溫潤湯感入口即暖，像替忙碌身體按下修復鍵，喝一碗抵敷 10 片面膜，隨時補充 200% 的元氣。
+              </p>
+              <div class="product-points" aria-label="古法新萃御膳雞湯特色">
+                <div class="point">
+                  <strong>3 分鐘即享</strong>
+                  <span>忙碌日常也能快速完成一份溫補儀式。</span>
+                </div>
+                <div class="point">
+                  <strong>8 小時熬煮</strong>
+                  <span>以濃厚湯底呈現時間淬鍊出的飽滿風味。</span>
+                </div>
+                <div class="point">
+                  <strong>元氣補給</strong>
+                  <span>適合早餐、宵夜、會議後或需要重新充電的時刻。</span>
+                </div>
+              </div>
+              <div class="product-tone">
+                <span class="tone-chip">濃郁雞湯</span>
+                <span class="tone-chip">溫潤補氣</span>
+                <span class="tone-chip">即飲食養</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <figure class="product-media" aria-label="黑金蕉響曲產品圖片區">
+              <div class="product-art" aria-hidden="true">
+                <div class="dessert-pack"></div>
+              </div>
+            </figure>
+            <div class="product-copy">
+              <div class="product-title">
+                <div class="product-label">No. 02｜Functional Dessert</div>
+                <h3>黑金蕉響曲</h3>
+                <span>Chocolate, Banana, A Better Afternoon</span>
+              </div>
+              <p class="product-lead">
+                將頂級巧克力配上香蕉，做成口感豐富的機能食品。吃下去就像在星級餐廳品嚐甜點，讓保養就像吃下午茶，開心零負擔。
+              </p>
+              <div class="product-points" aria-label="黑金蕉響曲特色">
+                <div class="point">
+                  <strong>甜點級風味</strong>
+                  <span>巧克力與香蕉的成熟香氣，帶來高級甜點般的滿足感。</span>
+                </div>
+                <div class="point">
+                  <strong>機能食品</strong>
+                  <span>把保養需求收進更好入口、更容易持續的日常點心。</span>
+                </div>
+                <div class="point">
+                  <strong>午後場景</strong>
+                  <span>適合工作空檔、輕食時刻與想善待自己的下午茶。</span>
+                </div>
+              </div>
+              <div class="product-tone">
+                <span class="tone-chip">頂級巧克力</span>
+                <span class="tone-chip">香蕉香氣</span>
+                <span class="tone-chip">保養甜點</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell footer-copy">
+      <span>Zihedo Select Demo Page</span>
+      <span>Copyright © 滋和堂生醫 All Rights Reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
