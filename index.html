@@ -67,6 +67,10 @@
       font-family: "Cormorant Garamond", "Noto Serif TC", serif;
     }
 
+    html[lang="pl"] body {
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+    }
+
     html[lang="ja"] body {
       font-family: "Noto Serif JP", "Noto Serif TC", serif;
     }
@@ -178,7 +182,11 @@
     html[lang="en"] .brand-mini span,
     html[lang="en"] .nav a,
     html[lang="en"] .eyebrow,
-    html[lang="en"] .footer-copy {
+    html[lang="en"] .footer-copy,
+    html[lang="pl"] .brand-mini span,
+    html[lang="pl"] .nav a,
+    html[lang="pl"] .eyebrow,
+    html[lang="pl"] .footer-copy {
       letter-spacing: 0.14em;
     }
 
@@ -700,7 +708,7 @@
         radial-gradient(circle at top left, rgba(217, 176, 127, 0.12), transparent 28%),
         linear-gradient(180deg, rgba(59, 38, 33, 0.72), rgba(35, 23, 21, 0.88));
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.96fr);
+      grid-template-columns: minmax(220px, 0.7fr) minmax(420px, 1.3fr);
       gap: 22px;
       padding: 24px;
     }
@@ -802,7 +810,7 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
-      align-self: stretch;
+      align-self: center;
       border-radius: 20px;
       padding: 10px;
       background:
@@ -821,8 +829,8 @@
 
     .business-card-frame img {
       width: 100%;
-      aspect-ratio: 1089 / 1325;
-      object-fit: cover;
+      aspect-ratio: 3787 / 1154;
+      object-fit: contain;
       object-position: center;
       border-radius: 14px;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
@@ -1022,11 +1030,11 @@
       }
 
       .contact-people {
-        padding: 20px;
+        padding: 16px;
       }
 
       .member-card {
-        padding: 18px;
+        padding: 14px;
       }
 
       .member-links a,
@@ -1042,8 +1050,8 @@
       }
 
       .business-card-frame {
-        padding: 8px;
-        border-radius: 18px;
+        padding: 6px;
+        border-radius: 16px;
       }
     }
 
@@ -1100,6 +1108,11 @@
             <button class="language-option" type="button" role="menuitemradio" aria-checked="false" data-language="en">
               <span class="language-option-code">EN</span>
               <span class="language-option-name">English</span>
+              <span class="language-option-check" aria-hidden="true">●</span>
+            </button>
+            <button class="language-option" type="button" role="menuitemradio" aria-checked="false" data-language="pl">
+              <span class="language-option-code">PL</span>
+              <span class="language-option-name">Polski</span>
               <span class="language-option-check" aria-hidden="true">●</span>
             </button>
             <button class="language-option" type="button" role="menuitemradio" aria-checked="false" data-language="ja">
@@ -1222,27 +1235,28 @@
               <div class="member-copy">
                 <div class="member-name">
                   <div class="member-role" data-i18n="contactRoleChairman">董事長</div>
-                  <strong>謝易達</strong>
-                  <span>Allen</span>
+                  <strong data-i18n="contactNameHsieh">謝易達</strong>
+                  <span data-i18n="contactAliasHsieh">Yi-Da, Xie</span>
                 </div>
                 <div class="member-links">
-                  <a href="tel:+886976265942" aria-label="Call Allen Hsieh">
-                    <strong data-i18n="contactLabelPhone">Phone</strong>
+                  <a href="tel:+886976265942" data-i18n-aria-label="contactAriaCallHsieh" aria-label="撥打電話給謝易達">
+                    <strong data-i18n="contactLabelPhone">電話</strong>
                     <em>0976-265942</em>
                   </a>
-                  <a href="mailto:allen0915959987@gmail.com" aria-label="Email Allen Hsieh">
-                    <strong data-i18n="contactLabelEmail">Email</strong>
+                  <a href="mailto:allen0915959987@gmail.com" data-i18n-aria-label="contactAriaEmailHsieh" aria-label="寄信給謝易達">
+                    <strong data-i18n="contactLabelEmail">信箱</strong>
                     <em>allen0915959987@gmail.com</em>
                   </a>
                   <span>
-                    <strong data-i18n="contactLabelAddress">Address</strong>
-                    <em>104 臺北市中山區新生北路一段59號</em>
+                    <strong data-i18n="contactLabelAddress">地址</strong>
+                    <em data-i18n="contactAddress">104 臺北市中山區新生北路一段59號</em>
                   </span>
                 </div>
               </div>
               <div class="business-card-frame">
                 <img
-                  src="assets/contact-hsieh.jpg"
+                  src="assets/contact-hsieh.png"
+                  data-i18n-alt="contactAltHsieh"
                   alt="滋和堂生醫董事長謝易達名片正反面"
                   loading="lazy"
                 >
@@ -1253,26 +1267,28 @@
               <div class="member-copy">
                 <div class="member-name">
                   <div class="member-role" data-i18n="contactRoleSupervisor">監察人</div>
-                  <strong>汪晁漢</strong>
+                  <strong data-i18n="contactNameWang">汪晁漢</strong>
+                  <span data-i18n="contactAliasWang">Chao-Han, Wang</span>
                 </div>
                 <div class="member-links">
-                  <a href="tel:+886970571188" aria-label="Call Wang Chaohan">
-                    <strong data-i18n="contactLabelPhone">Phone</strong>
+                  <a href="tel:+886970571188" data-i18n-aria-label="contactAriaCallWang" aria-label="撥打電話給汪晁漢">
+                    <strong data-i18n="contactLabelPhone">電話</strong>
                     <em>0970-571188</em>
                   </a>
-                  <a href="mailto:s0970571188@gmail.com" aria-label="Email Wang Chaohan">
-                    <strong data-i18n="contactLabelEmail">Email</strong>
+                  <a href="mailto:s0970571188@gmail.com" data-i18n-aria-label="contactAriaEmailWang" aria-label="寄信給汪晁漢">
+                    <strong data-i18n="contactLabelEmail">信箱</strong>
                     <em>s0970571188@gmail.com</em>
                   </a>
                   <span>
-                    <strong data-i18n="contactLabelAddress">Address</strong>
-                    <em>104 臺北市中山區新生北路一段59號</em>
+                    <strong data-i18n="contactLabelAddress">地址</strong>
+                    <em data-i18n="contactAddress">104 臺北市中山區新生北路一段59號</em>
                   </span>
                 </div>
               </div>
               <div class="business-card-frame">
                 <img
-                  src="assets/contact-wang.jpg"
+                  src="assets/contact-wang.png"
+                  data-i18n-alt="contactAltWang"
                   alt="滋和堂生醫監察人汪晁漢名片正反面"
                   loading="lazy"
                 >
@@ -1301,6 +1317,7 @@
       const languageOptions = document.querySelectorAll(".language-option[data-language]");
       const translatedNodes = document.querySelectorAll("[data-i18n]");
       const translatedAriaNodes = document.querySelectorAll("[data-i18n-aria-label]");
+      const translatedAltNodes = document.querySelectorAll("[data-i18n-alt]");
       const titleTag = document.querySelector("title");
       const descriptionMeta = document.querySelector('meta[name="description"]');
       const ogTitleMeta = document.querySelector('meta[property="og:title"]');
@@ -1308,6 +1325,7 @@
       const languageLabels = {
         "zh-Hant": { code: "ZH", name: "中文" },
         en: { code: "EN", name: "English" },
+        pl: { code: "PL", name: "Polski" },
         ja: { code: "JA", name: "日本語" },
         ko: { code: "KO", name: "한국어" }
       };
@@ -1353,9 +1371,20 @@
           contactPeopleTitle: "核心成員",
           contactRoleSupervisor: "監察人",
           contactRoleChairman: "董事長",
+          contactNameHsieh: "謝易達",
+          contactAliasHsieh: "Yi-Da, Xie",
+          contactNameWang: "汪晁漢",
+          contactAliasWang: "Chao-Han, Wang",
           contactLabelPhone: "電話",
           contactLabelEmail: "信箱",
           contactLabelAddress: "地址",
+          contactAddress: "104 臺北市中山區新生北路一段59號",
+          contactAriaCallHsieh: "撥打電話給謝易達",
+          contactAriaEmailHsieh: "寄信給謝易達",
+          contactAriaCallWang: "撥打電話給汪晁漢",
+          contactAriaEmailWang: "寄信給汪晁漢",
+          contactAltHsieh: "滋和堂生醫董事長謝易達名片正反面",
+          contactAltWang: "滋和堂生醫監察人汪晁漢名片正反面",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © 滋和堂生醫 All Rights Reserved."
         },
@@ -1399,11 +1428,79 @@
           contactPeopleTitle: "Core Members",
           contactRoleSupervisor: "Supervisor",
           contactRoleChairman: "Chairman",
+          contactNameHsieh: "謝易達",
+          contactAliasHsieh: "Yi-Da, Xie",
+          contactNameWang: "汪晁漢",
+          contactAliasWang: "Chao-Han, Wang",
           contactLabelPhone: "Phone",
           contactLabelEmail: "Email",
           contactLabelAddress: "Address",
+          contactAddress: "No. 59, Sec. 1, Xinsheng N. Rd., Zhongshan Dist., Taipei City 10484, Taiwan (R.O.C.)",
+          contactAriaCallHsieh: "Call Yi-Da Xie",
+          contactAriaEmailHsieh: "Email Yi-Da Xie",
+          contactAriaCallWang: "Call Chao-Han Wang",
+          contactAriaEmailWang: "Email Chao-Han Wang",
+          contactAltHsieh: "Front and back of Zihedo Biotech Chairman Yi-Da Xie's business card",
+          contactAltWang: "Front and back of Zihedo Biotech Supervisor Chao-Han Wang's business card",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
+        },
+        pl: {
+          pageTitle: "Zihedo Biotech",
+          metaDescription: "Zihedo Biotech łączy tradycyjną mądrość z nowoczesną nauką, tworząc zintegrowaną markę z obszaru ziołowego i żywieniowego dobrostanu dla eleganckiej codziennej troski o zdrowie.",
+          ogDescription: "Koncentrując się na ziołowym i żywieniowym dobrostanie, Zihedo odpowiada na potrzeby starzejącego się społeczeństwa i czyni dbanie o zdrowie częścią eleganckiej codzienności.",
+          brandMiniAriaLabel: "Strona główna Zihedo Biotech",
+          navAriaLabel: "Główna nawigacja",
+          languageSwitcherAriaLabel: "Przełącznik języka",
+          heroLogoAriaLabel: "Identyfikacja marki Zihedo Biotech",
+          brandMiniTitle: "ZIHÉDO",
+          brandMiniTagline: "Zihedo Biotech | Japońskie dziedzictwo technologiczne",
+          navAbout: "O marce",
+          navVision: "Wizja",
+          navContact: "Zespół",
+          heroSubline: "Zihedo Biotech | Japońskie dziedzictwo technologiczne",
+          heroOrigin: "OD 1895 · NARA, JAPONIA",
+          heroTitle: "Niech troska o zdrowie stanie się częścią eleganckiego codziennego życia.",
+          heroBody1: "Wraz ze starzeniem się społeczeństwa Tajwanu zdrowie nie może już opierać się wyłącznie na biernej regeneracji. Zihedo Biotech łączy tradycyjną mądrość z nowoczesną nauką, tworząc wyrazistą markę ziołowego i żywieniowego dobrostanu.",
+          heroBody2: "Dzięki wysokiej jakości produktom biotechnologicznym chcemy, by starzenie się było mniej ciężarem, a bardziej pełną siły, godności i jakości życia elegancką drogą.",
+          heroPrimaryCta: "O marce",
+          heroSecondaryCta: "Zespół",
+          aboutEyebrow: "O marce",
+          aboutTitle: "Marka biotechnologiczna skoncentrowana na ziołowym i żywieniowym dobrostanie, odpowiadająca na potrzeby starzejącego się społeczeństwa.",
+          aboutLead: "Zakotwiczona w mądrości wschodnich praktyk zdrowotnych, Zihedo Biotech łączy nowoczesną naukę i myślenie o jakości, dzięki czemu troska o zdrowie staje się czymś więcej niż produktem. Staje się zaufaną codzienną praktyką.",
+          aboutItem1Title: "Język marki",
+          aboutItem1Body: "Przybliżać ziołowy i żywieniowy dobrostan do rytmu współczesnego życia.",
+          aboutItem2Title: "Kierunek produktów",
+          aboutItem2Body: "Skupiać się na produktach biotechnologicznych klasy premium, które zaczynają się od profilaktycznej troski i odpowiadają zarówno na wyzwania starzejącego się społeczeństwa, jak i codzienne potrzeby zdrowotne.",
+          aboutItem3Title: "Wartość podstawowa",
+          aboutItem3Body: "Zdrowie to nie tylko obietnica funkcjonalna, ale godny i wysokiej jakości sposób życia.",
+          visionEyebrow: "Wizja",
+          visionTitle: "Starzenie się nie powinno być ciężarem, lecz spokojną, pewną i pełną jakości drogą życia.",
+          visionLead: "Dzięki mocnym produktom i stabilnym fundamentom marki chcemy pomagać osobom starszym zachować sprawność fizyczną oraz cieszyć się niezależnym, godnym i wysokiej jakości życiem.",
+          visionItem1Title: "Cel długoterminowy",
+          visionItem1Body: "Budować ekosystem codziennego dobrostanu, który wyrasta z marki o dziedzictwie, trafia na współczesne stoły i do codziennych rytuałów, a następnie staje się wiodącą zintegrowaną marką ziołowego i żywieniowego dobrostanu w świecie chińskojęzycznym.",
+          visionItem2Title: "Kierunek rozwoju",
+          visionItem2Body: "Wykorzystując siłę marki, jakość produktów i partnerstwa międzybranżowe, będziemy dalej rozszerzać obecność rynkową i wprowadzać filozofię dobrostanu Zihedo do coraz większej liczby codziennych sytuacji.",
+          contactPeopleEyebrow: "Kluczowi członkowie",
+          contactPeopleTitle: "Kluczowi członkowie",
+          contactRoleSupervisor: "Audytor",
+          contactRoleChairman: "Przewodniczący",
+          contactNameHsieh: "謝易達",
+          contactAliasHsieh: "Yi-Da, Xie",
+          contactNameWang: "汪晁漢",
+          contactAliasWang: "Chao-Han, Wang",
+          contactLabelPhone: "Telefon",
+          contactLabelEmail: "E-mail",
+          contactLabelAddress: "Adres",
+          contactAddress: "No. 59, Sec. 1, Xinsheng N. Rd., dzielnica Zhongshan, Tajpej 10484, Tajwan (R.O.C.)",
+          contactAriaCallHsieh: "Zadzwoń do Yi-Da Xie",
+          contactAriaEmailHsieh: "Napisz do Yi-Da Xie",
+          contactAriaCallWang: "Zadzwoń do Chao-Han Wanga",
+          contactAriaEmailWang: "Napisz do Chao-Han Wanga",
+          contactAltHsieh: "Przód i tył wizytówki przewodniczącego Zihedo Biotech, Yi-Da Xie",
+          contactAltWang: "Przód i tył wizytówki audytora Zihedo Biotech, Chao-Han Wanga",
+          footerSite: "Oficjalna strona Zihedo Biotech",
+          footerCopyright: "Copyright © Zihedo Biotech. Wszelkie prawa zastrzeżone."
         },
         ja: {
           pageTitle: "滋和堂生医 Zihedo Biotech",
@@ -1445,9 +1542,20 @@
           contactPeopleTitle: "主要メンバー",
           contactRoleSupervisor: "監査役",
           contactRoleChairman: "会長",
+          contactNameHsieh: "謝易達",
+          contactAliasHsieh: "Yi-Da, Xie",
+          contactNameWang: "汪晁漢",
+          contactAliasWang: "Chao-Han, Wang",
           contactLabelPhone: "電話",
           contactLabelEmail: "メール",
           contactLabelAddress: "住所",
+          contactAddress: "10484 台湾 台北市中山区新生北路一段59号",
+          contactAriaCallHsieh: "謝易達に電話する",
+          contactAriaEmailHsieh: "謝易達にメールする",
+          contactAriaCallWang: "汪晁漢に電話する",
+          contactAriaEmailWang: "汪晁漢にメールする",
+          contactAltHsieh: "滋和堂生医 会長 謝易達 の名刺表裏",
+          contactAltWang: "滋和堂生医 監査役 汪晁漢 の名刺表裏",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © 滋和堂生医 All Rights Reserved."
         },
@@ -1491,9 +1599,20 @@
           contactPeopleTitle: "핵심 멤버",
           contactRoleSupervisor: "감사",
           contactRoleChairman: "회장",
+          contactNameHsieh: "謝易達",
+          contactAliasHsieh: "Yi-Da, Xie",
+          contactNameWang: "汪晁漢",
+          contactAliasWang: "Chao-Han, Wang",
           contactLabelPhone: "전화",
           contactLabelEmail: "이메일",
           contactLabelAddress: "주소",
+          contactAddress: "10484 대만 타이베이시 중산구 신생북로 1단 59호",
+          contactAriaCallHsieh: "謝易達에게 전화하기",
+          contactAriaEmailHsieh: "謝易達에게 이메일 보내기",
+          contactAriaCallWang: "汪晁漢에게 전화하기",
+          contactAriaEmailWang: "汪晁漢에게 이메일 보내기",
+          contactAltHsieh: "지화당 바이오 회장 謝易達 명함 앞뒷면",
+          contactAltWang: "지화당 바이오 감사 汪晁漢 명함 앞뒷면",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
         }
@@ -1531,6 +1650,10 @@
 
         if (browserLanguage.startsWith("zh")) {
           return "zh-Hant";
+        }
+
+        if (browserLanguage.startsWith("pl")) {
+          return "pl";
         }
 
         if (browserLanguage.startsWith("ja")) {
@@ -1591,6 +1714,14 @@
 
           if (key && dictionary[key]) {
             node.setAttribute("aria-label", dictionary[key]);
+          }
+        });
+
+        translatedAltNodes.forEach((node) => {
+          const key = node.dataset.i18nAlt;
+
+          if (key && dictionary[key]) {
+            node.setAttribute("alt", dictionary[key]);
           }
         });
 
