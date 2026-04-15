@@ -811,11 +811,30 @@
       z-index: 1;
       overflow: hidden;
       align-self: center;
+      display: block;
+      width: 100%;
       border-radius: 20px;
       padding: 10px;
       background:
         linear-gradient(180deg, rgba(231, 200, 159, 0.08), rgba(255, 255, 255, 0.02));
       border: 1px solid rgba(231, 200, 159, 0.1);
+      cursor: zoom-in;
+      appearance: none;
+      font: inherit;
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+    }
+
+    .business-card-frame:hover,
+    .business-card-frame:focus-visible {
+      border-color: rgba(231, 200, 159, 0.28);
+      background:
+        linear-gradient(180deg, rgba(231, 200, 159, 0.14), rgba(255, 255, 255, 0.04));
+      transform: translateY(-1px);
+    }
+
+    .business-card-frame:focus-visible {
+      outline: 2px solid rgba(231, 200, 159, 0.52);
+      outline-offset: 4px;
     }
 
     .business-card-frame::before {
@@ -834,6 +853,73 @@
       object-position: center;
       border-radius: 14px;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    body.has-card-modal {
+      overflow: hidden;
+    }
+
+    .card-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(20, 12, 11, 0.88);
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    .card-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .card-modal-panel {
+      position: relative;
+      width: min(1180px, calc(100vw - 32px));
+      max-height: calc(100dvh - 48px);
+      display: grid;
+      place-items: center;
+    }
+
+    .card-modal-image {
+      width: 100%;
+      max-height: calc(100dvh - 72px);
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.48);
+      background: #fff;
+    }
+
+    .card-modal-close {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1;
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(231, 200, 159, 0.28);
+      background: rgba(37, 22, 20, 0.92);
+      color: var(--highlight);
+      font: inherit;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32);
+    }
+
+    .card-modal-close:hover,
+    .card-modal-close:focus-visible {
+      background: rgba(54, 34, 30, 0.96);
+      outline: 2px solid rgba(231, 200, 159, 0.52);
+      outline-offset: 3px;
     }
 
     footer {
@@ -1053,6 +1139,23 @@
         padding: 6px;
         border-radius: 16px;
       }
+
+      .card-modal {
+        place-items: center start;
+        overflow: auto;
+        padding: 16px;
+      }
+
+      .card-modal-panel {
+        width: max-content;
+        max-height: none;
+      }
+
+      .card-modal-image {
+        width: min(980px, 240vw);
+        max-width: none;
+        max-height: calc(100dvh - 56px);
+      }
     }
 
     @media (max-width: 420px) {
@@ -1253,14 +1356,20 @@
                   </span>
                 </div>
               </div>
-              <div class="business-card-frame">
+              <button
+                class="business-card-frame"
+                type="button"
+                data-card-modal-trigger
+                data-i18n-aria-label="contactOpenCardHsieh"
+                aria-label="放大檢視謝易達名片"
+              >
                 <img
                   src="assets/contact-hsieh.png"
                   data-i18n-alt="contactAltHsieh"
                   alt="滋和堂生醫董事長謝易達名片正反面"
                   loading="lazy"
                 >
-              </div>
+              </button>
             </article>
 
             <article class="member-card">
@@ -1285,14 +1394,20 @@
                   </span>
                 </div>
               </div>
-              <div class="business-card-frame">
+              <button
+                class="business-card-frame"
+                type="button"
+                data-card-modal-trigger
+                data-i18n-aria-label="contactOpenCardWang"
+                aria-label="放大檢視汪晁漢名片"
+              >
                 <img
                   src="assets/contact-wang.png"
                   data-i18n-alt="contactAltWang"
                   alt="滋和堂生醫監察人汪晁漢名片正反面"
                   loading="lazy"
                 >
-              </div>
+              </button>
             </article>
           </div>
         </div>
@@ -1307,6 +1422,19 @@
     </div>
   </footer>
 
+  <div class="card-modal" data-card-modal role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="card-modal-panel" data-card-modal-panel>
+      <button
+        class="card-modal-close"
+        type="button"
+        data-card-modal-close
+        data-i18n-aria-label="cardModalClose"
+        aria-label="關閉名片大圖"
+      >×</button>
+      <img class="card-modal-image" data-card-modal-image alt="">
+    </div>
+  </div>
+
   <script>
     (() => {
       const header = document.querySelector(".site-header");
@@ -1318,6 +1446,11 @@
       const translatedNodes = document.querySelectorAll("[data-i18n]");
       const translatedAriaNodes = document.querySelectorAll("[data-i18n-aria-label]");
       const translatedAltNodes = document.querySelectorAll("[data-i18n-alt]");
+      const cardModalTriggers = document.querySelectorAll("[data-card-modal-trigger]");
+      const cardModal = document.querySelector("[data-card-modal]");
+      const cardModalPanel = document.querySelector("[data-card-modal-panel]");
+      const cardModalImage = document.querySelector("[data-card-modal-image]");
+      const cardModalClose = document.querySelector("[data-card-modal-close]");
       const titleTag = document.querySelector("title");
       const descriptionMeta = document.querySelector('meta[name="description"]');
       const ogTitleMeta = document.querySelector('meta[property="og:title"]');
@@ -1383,8 +1516,11 @@
           contactAriaEmailHsieh: "寄信給謝易達",
           contactAriaCallWang: "撥打電話給汪晁漢",
           contactAriaEmailWang: "寄信給汪晁漢",
+          contactOpenCardHsieh: "放大檢視謝易達名片",
+          contactOpenCardWang: "放大檢視汪晁漢名片",
           contactAltHsieh: "滋和堂生醫董事長謝易達名片正反面",
           contactAltWang: "滋和堂生醫監察人汪晁漢名片正反面",
+          cardModalClose: "關閉名片大圖",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © 滋和堂生醫 All Rights Reserved."
         },
@@ -1440,8 +1576,11 @@
           contactAriaEmailHsieh: "Email Yi-Da Xie",
           contactAriaCallWang: "Call Chao-Han Wang",
           contactAriaEmailWang: "Email Chao-Han Wang",
+          contactOpenCardHsieh: "Enlarge Yi-Da Xie's business card",
+          contactOpenCardWang: "Enlarge Chao-Han Wang's business card",
           contactAltHsieh: "Front and back of Zihedo Biotech Chairman Yi-Da Xie's business card",
           contactAltWang: "Front and back of Zihedo Biotech Supervisor Chao-Han Wang's business card",
+          cardModalClose: "Close enlarged business card",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
         },
@@ -1497,8 +1636,11 @@
           contactAriaEmailHsieh: "Napisz do Yi-Da Xie",
           contactAriaCallWang: "Zadzwoń do Chao-Han Wanga",
           contactAriaEmailWang: "Napisz do Chao-Han Wanga",
+          contactOpenCardHsieh: "Powiększ wizytówkę Yi-Da Xie",
+          contactOpenCardWang: "Powiększ wizytówkę Chao-Han Wanga",
           contactAltHsieh: "Przód i tył wizytówki przewodniczącego Zihedo Biotech, Yi-Da Xie",
           contactAltWang: "Przód i tył wizytówki audytora Zihedo Biotech, Chao-Han Wanga",
+          cardModalClose: "Zamknij powiększoną wizytówkę",
           footerSite: "Oficjalna strona Zihedo Biotech",
           footerCopyright: "Copyright © Zihedo Biotech. Wszelkie prawa zastrzeżone."
         },
@@ -1554,8 +1696,11 @@
           contactAriaEmailHsieh: "謝易達にメールする",
           contactAriaCallWang: "汪晁漢に電話する",
           contactAriaEmailWang: "汪晁漢にメールする",
+          contactOpenCardHsieh: "謝易達の名刺を拡大表示する",
+          contactOpenCardWang: "汪晁漢の名刺を拡大表示する",
           contactAltHsieh: "滋和堂生医 会長 謝易達 の名刺表裏",
           contactAltWang: "滋和堂生医 監査役 汪晁漢 の名刺表裏",
+          cardModalClose: "名刺の拡大表示を閉じる",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © 滋和堂生医 All Rights Reserved."
         },
@@ -1611,8 +1756,11 @@
           contactAriaEmailHsieh: "謝易達에게 이메일 보내기",
           contactAriaCallWang: "汪晁漢에게 전화하기",
           contactAriaEmailWang: "汪晁漢에게 이메일 보내기",
+          contactOpenCardHsieh: "謝易達 명함 크게 보기",
+          contactOpenCardWang: "汪晁漢 명함 크게 보기",
           contactAltHsieh: "지화당 바이오 회장 謝易達 명함 앞뒷면",
           contactAltWang: "지화당 바이오 감사 汪晁漢 명함 앞뒷면",
+          cardModalClose: "명함 큰 이미지 닫기",
           footerSite: "Zihedo Biotech Official Website",
           footerCopyright: "Copyright © Zihedo Biotech. All Rights Reserved."
         }
@@ -1694,6 +1842,40 @@
         languageTrigger.setAttribute("aria-expanded", String(isOpen));
       };
 
+      let lastCardModalTrigger = null;
+
+      const closeCardModal = () => {
+        if (!cardModal || !cardModalImage) {
+          return;
+        }
+
+        cardModal.classList.remove("is-open");
+        cardModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("has-card-modal");
+        cardModalImage.removeAttribute("src");
+        cardModalImage.setAttribute("alt", "");
+
+        if (lastCardModalTrigger) {
+          lastCardModalTrigger.focus();
+        }
+      };
+
+      const openCardModal = (trigger) => {
+        const image = trigger.querySelector("img");
+
+        if (!cardModal || !cardModalImage || !image) {
+          return;
+        }
+
+        lastCardModalTrigger = trigger;
+        cardModalImage.src = image.currentSrc || image.src;
+        cardModalImage.alt = image.alt;
+        cardModal.classList.add("is-open");
+        cardModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("has-card-modal");
+        cardModalClose?.focus();
+      };
+
       const applyLanguage = (language) => {
         const dictionary = translations[language] || translations["zh-Hant"];
         const label = languageLabels[language] || languageLabels["zh-Hant"];
@@ -1758,6 +1940,20 @@
         });
       });
 
+      cardModalTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          openCardModal(trigger);
+        });
+      });
+
+      cardModalClose?.addEventListener("click", closeCardModal);
+
+      cardModal?.addEventListener("click", (event) => {
+        if (event.target === cardModal || event.target === cardModalPanel) {
+          closeCardModal();
+        }
+      });
+
       document.addEventListener("click", (event) => {
         if (!languageSwitcher || languageSwitcher.contains(event.target)) {
           return;
@@ -1768,6 +1964,10 @@
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+          if (cardModal?.classList.contains("is-open")) {
+            closeCardModal();
+          }
+
           setLanguageMenuState(false);
         }
       });
